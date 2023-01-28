@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+var iframe = window.document.querySelector('iframe');
+
+// ...
+
+function isSafari() {
+  var ua = navigator.userAgent.toLowerCase();
+  return ((ua.indexOf('safari') != -1) && (ua.indexOf('chrome') === -1));
+}
+
+function setIframeFocus() {
+  iframe.focus();
+  if(isSafari()) {
+    window.setTimeout(function() {
+      iframe.contentWindow.focus();
+    }, 100)
+  }
+}
+
+iframe.onload = setIframeFocus;
+  $(function () {
+    setIFrameSize();
+    $(window).resize(function () {
+        setIFrameSize();
+    });
+});
+  </script>
+  
+<style>
+  html,
+body {
+  touch-action: auto;
+      height: 100%;
+    margin: 0;
+    overflow: hidden;
+}
+  iframe {
+    width: 500px;
+    height: 500px;
+}
+iframe.fullScreen {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+</style>
+<title>Untitled</title>
+</head>
+<body>
+  <script>
+function requestFullScreen(element) {
+    // Supports most browsers and their versions.
+    var requestMethod = element.requestFullScreen || element.webkitRequestFullScreen || element.mozRequestFullScreen || element.msRequestFullscreen;
+
+    if (requestMethod) { // Native full screen.
+        requestMethod.call(element);
+    } else if (typeof window.ActiveXObject !== "undefined") { // Older IE.
+        var wscript = new ActiveXObject("WScript.Shell");
+        if (wscript !== null) {
+            wscript.SendKeys("{F11}");
+        }
+    }
+}
+
+function makeFullScreen() {
+    document.getElementsByTagName("iframe")[0].className = "fullScreen";
+    var elem = document.body;
+    requestFullScreen(elem);
+}
+</script>
+  <center>
+    <font face="Arial">
+    <a href="/Minecraft1.5.2/index.html" target="game_frame"><button>Play Minecraft 1.5.2<br></button></a>
+    <a href="/Minecraft1.8.8/index.html" target="game_frame"><button>Play Minecraft 1.8.8<br></button></a>
+    <button onclick="makeFullScreen()">Full Screen<br></button>
+    <br>
+    <div class="container">
+    <iframe width="800" height="600" class="iframe" name="game_frame" id="iframe" src="about:blank"></iframe>
+    <p>&nbsp</p>
+     <p>How to import worlds from other clients (1.5.2 only)<br>
+      Step 1. Click "New World"<br>
+      Step 2. Click "Load EPK File"<br>
+      Step 3. Click "Continue"<br>
+      How to export worlds to use in other clients<br>
+      Step 1. Click "Backup"<br>
+      Step 2. Click "Export to EPK", or if you want to play your world on non-web clients, click "Export to Vanilla".<br>
+      </p>
+      </div>
+    </font>
+  </center>
+</body>
+</html>
