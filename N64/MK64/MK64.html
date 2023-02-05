@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+<head>
+<title>MK64</title>
+<style>
+iframe {
+   display: none;
+   visibility: hidden;
+}
+div:has(+ iframe) {
+   display: none;
+   visibility: hidden;
+}
+</style>
+</head><body><center>
+<h2>Mario Kart 64</h2>
+
+<script>
+    EJS_player = '#game';
+    EJS_core = 'n64';
+
+
+    // URL to Game rom
+    EJS_gameUrl = 'https://choccymalk.github.io/N64/MK64/mk64.z64';
+    
+</script>
+<div style="width:640px;height:480px;max-width:100%">
+        <div id="game"></div>
+      </div>
+	  <script src="https://www.emulatorjs.com/loader.js"></script>
+</center>
+</body>
+</html>
