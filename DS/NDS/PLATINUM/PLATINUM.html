@@ -1,7 +1,9 @@
+<!-- black url: https://www.dropbox.com/s/ienjmcm6on7yley/black.nds?dl=0 -->
+<!-- white url: https://www.dropbox.com/s/yb1y9csmbellm06/white.nds?dl=0 -->
 <!doctype html>
 <html>
 <head>
-<title>SMBD</title>
+<title>PLTNM</title>
 <style>
 iframe {
    display: none;
@@ -13,16 +15,25 @@ div:has(+ iframe) {
 }
 </style>
 </head><body><center>
-<h2>Super Mario Bros Deluxe</h2>
+<h2>Pokemon Platinum</h2>
 
 <script>
+<script type='text/javascript'>
     EJS_player = '#game';
-    EJS_core = 'gb';
-	EJS_pathtodata = "https://rawcdn.githack.com/EmulatorJS/EmulatorJS/main/data/";
-    EJS_biosUrl = 'https://choccymalk.github.io/GB/gbc_rom.bin';
-    // URL to Game rom
-    EJS_gameUrl = 'https://choccymalk.github.io/GB/GBC/SMBD/smbd.gbc';
     
+    // Can also be desmume2015 or melonds
+    EJS_core = 'nds';
+    
+    // URL to BIOS file
+    EJS_biosUrl = '/DS/NDS_ROM.nds';
+    
+    // URL to Game rom
+    EJS_gameUrl = 'https://www.dropbox.com/s/6v4twrg6ttdrcud/platinum.nds?dl=0';
+    
+    // Path to the data directory
+    EJS_pathtodata = 'https://rawcdn.githack.com/EmulatorJS/EmulatorJS/main/data/';
+</script>
+<script src='data/loader.js'></script>
 </script>
 <div style="width:640px;height:480px;max-width:100%">
         <div id="game"></div>
