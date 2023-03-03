@@ -1,7 +1,9 @@
+<!-- black url: https://dl.dropboxusercontent.com/s/ienjmcm6on7yley/black.nds?dl=0 -->
+<!-- white url: https://dl.dropboxusercontent.com/s/yb1y9csmbellm06/white.nds?dl=0 -->
 <!doctype html>
 <html>
 <head>
-<title>SMBD</title>
+<title>BLK</title>
 <style>
 iframe {
    display: none;
@@ -13,20 +15,21 @@ div:has(+ iframe) {
 }
 </style>
 </head><body><center>
-<h2>Super Mario Bros Deluxe</h2>
+<h2>Pokemon Black</h2>
 
-<script>
-    EJS_player = '#game';
-    EJS_core = 'gb';
-	EJS_pathtodata = "https://rawcdn.githack.com/EmulatorJS/EmulatorJS/main/data/";
-    EJS_biosUrl = 'https://choccymalk.github.io/GB/gbc_rom.bin';
-    // URL to Game rom
-    EJS_gameUrl = 'https://choccymalk.github.io/GB/GBC/SMBD/smbd.gbc';
-    
+<script type='text/javascript'>
+EJS_player = '#game';
+            EJS_core = 'nds';
+            EJS_gameName = 'PokemonBlack';
+            EJS_color = '#0064ff';
+    EJS_pathtodata = 'https://rawcdn.githack.com/EmulatorJS/EmulatorJS/main/data/';
+   EJS_gameUrl = 'https://dl.dropboxusercontent.com/s/ienjmcm6on7yley/black.nds';
 </script>
-<div style="width:640px;height:480px;max-width:100%">
+<div style="width:768px;height:576px;max-width:100%">
         <div id="game"></div>
       </div>
+	  <p>&nbsp;</p>
+	  <button onclick="history.back();">Back</button>
         <script src="https://rawcdn.githack.com/EmulatorJS/EmulatorJS/main/data/loader.js"></script>
 </center>
 </body>
