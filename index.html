@@ -2,18 +2,301 @@
 <html>
 <head>
 <title>Untitled</title>
+<style>
+body {
+font-family:Gadugi;
+vertical-align: top;
+background-image: url(mountain.png);
+background-position: center center;
+background-repeat:no-repeat;
+background-attachment: fixed;
+background-size: cover; 
+}
+
+body::-webkit-scrollbar {
+ display: none;
+}
+
+body {
+  -ms-overflow-style: none; 
+  scrollbar-width: none;  
+  font-family:Gadugi;
+}
+
+.whiteButton {
+position: absolute;
+top: 0px;
+right: 0px;
+display: flex;
+}
+	  
+.whitebutton {
+background-color: Transparent;
+background-repeat:no-repeat;
+border: none;
+cursor: default;
+overflow: hidden;
+outline:none;
+font-size:0.25em;
+}
+
+.blueContainer {
+background-color:#79ceea;
+text-align:center; 
+border-radius: 10px;
+}
+
+.f-newest {
+border-radius: 5px;
+text-align:center; 
+overflow-x: scroll;
+font-family:Gadugi;
+}
+
+.consoles {
+display: grid;
+text-align: center;
+font-family:Gadugi;
+grid-template-columns: 0.5fr 0.5fr 0.5fr 0.5fr 0fr;
+}
+  
+	.text-center {
+	  text-align: center;
+	  font-family:Gadugi;
+	}
+  
+	.game-link {
+	  height: 250px;
+	  width: 200px;
+      margin: 5px;
+	  font-family:Gadugi;
+	}
+  
+	.game-tile {
+	  background-color: white;
+	  height: 250px;
+	  width: 200px;
+	  border-radius: 30px;
+	  -webkit-animation: scale-down-center 0.1s both;
+	  animation: scale-down-center 0.1s both;
+	  font-family:Gadugi;
+	}
+  
+	.game-tile:hover {
+	  -webkit-animation: scale-up-center 0.1s both;
+	  animation: scale-up-center 0.1s both;
+      font-weight: bold;
+      cursor: pointer;
+	  font-family:Gadugi;
+	}
+    
+	.game-tile:hover .game-title{
+      font-size: bold;
+      cursor: pointer;
+	  font-family:Gadugi;
+	}
+  
+	@-webkit-keyframes scale-up-center {
+	  0% {
+		-webkit-transform: scale(1);
+		transform: scale(1);
+	  }
+  
+	  100% {
+		-webkit-transform: scale(1.1);
+		transform: scale(1.1);
+	  }
+	}
+  
+	@-webkit-keyframes scale-down-center {
+	  0% {
+		-webkit-transform: scale(1.1);
+		transform: scale(1.1);
+	  }
+  
+	  100% {
+		-webkit-transform: scale(1);
+		transform: scale(1);
+	  }
+	}
+  
+	.game-icon {
+	  border-radius: 15px;
+	  width: 200px;
+	  height: 200px;
+	}
+  
+	.game-title {
+	  font-size: 18px;
+	  text-align: center;
+	  font-family: "roboto";
+	}
+  
+	.flex-container {
+	  display: flex;
+	  text-align: center;
+	  flex-direction: row;
+	  order: 0;
+	  flex-grow: 0;
+	  flex-wrap: wrap;
+	}
+  
+	.container {
+	  padding: 10px;
+	}
+  
+	#searchQuery {
+	  width: calc(50% + 100px);
+	  border: 3px solid #ddd;
+	  border-radius: 10px;
+      margin: 10px;
+      padding: 5px;
+	}
+	
+  h2 {
+   width: 100%; 
+   margin: 10px 0 20px; 
+  } 
+
+  h2 span { 
+    padding:0 10px; 
+  }
+  .topcorner{
+  position:absolute;
+  top:10;
+  right:15;
+  }
+  .chat{
+background-color:skyblue;
+font-size: 16px;
+padding: 12px 24px;
+  }
+  .niceButton {
+background-color: #98d6ee;
+border: 1px solid black;
+  }
+  .niceButton:hover {
+  font-weight: bold;
+  }  
+  
+.close{ 
+font-size: 30px;
+background-color:white;
+color:black;
+border:1px solid black;
+margin: 5px;
+border-radius:50px;
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    color: #eee;
+    background: #121212;
+	font-family:Gadugi;
+  }
+  body a {
+    color: #809fff;
+  }
+ .game-tile {
+	  background-color: #292929;
+	  font-family:Gadugi;
+  }
+  .whitebutton {
+  color: #eee;
+  }
+  .blueContainer {
+background-color:#191919;
+ }
+ .chat { 
+background-color:#383838; 
+ }
+  #searchQuery {
+color: #eee;
+background-color:#383838;  
+border: 3px solid #292929;
+  }
+   img {
+    filter: brightness(.9) contrast(1);
+  }
+  .close{
+background-color:#323232;
+color:white;
+border:1px solid white;
+font-weight: bold;
+ }
+   .niceButton {
+border: 1px solid white;
+color: #eee;
+background-color:#393939;
+  }
+}  
+h1 {
+color:#c9ced1;
+font-family:Gadugi;
+}
+a {
+text-decoration:none;
+}
+</style>
 </head>
 <body>
-  <center>
-    <font face="Arial">
-	<a href="/N64/n64io.html"><button>Nintendo 64<br></button></a>
-    <p>&nbsp</p>
-	<a href="/GB/gbio.html"><button>Gameboy<br></button></a>
-	<p>&nbsp</p>
-	<a href="/DS/dsio.html"><button>NDS<br></button></a>
-	<p>&nbsp</p>
-	<a href="/MinecraftIndex/index.html"><button>Minecraft<br></button></a>
-    </font>
-  </center>
+<font face="Gadugi">
+<center><h1>Consoles</h1></center>
+<p>&nbsp;</p>
+<div id="search">
+<div class="consoles">
+<a class="game-link container games" href="file:///D:/choccymalk.github.io/choccymalk.github.io/N64/n64io.html"><div class="game-tile"><span style="font-size:0px;position:fixed"></span>
+<div><img class="game-icon" src="file:///D:/choccymalk.github.io/choccymalk.github.io/images/n64.png" loading="lazy" alt="Nintendo 64"></div><h1 style="font-family:Arial;" class="game-title">Nintendo 64</h1></div></a>
+<a class="game-link container games" href="file:///D:/choccymalk.github.io/choccymalk.github.io/GB/gbio.html"><div class="game-tile"><span style="font-size:0px;position:fixed"></span>
+<div><center><img class="game-icon" style="width:120px;height:145;" src="file:///D:/choccymalk.github.io/choccymalk.github.io/images/dmg.png" loading="lazy" alt="Gameboy"></center></div><h1 style="font-family:Arial;" class="game-title">Gameboy</h1></div></a>
+<a class="game-link container games" href="file:///D:/choccymalk.github.io/choccymalk.github.io/GB/gbio.html"><div class="game-tile"><span style="font-size:0px;position:fixed"></span>
+<div><img class="game-icon" src="file:///D:/choccymalk.github.io/choccymalk.github.io/images/gbc.png" loading="lazy" alt="Gameboy Color"></div><h1 style="font-family:Arial;" class="game-title">Gameboy Color</h1></div></a>
+<a class="game-link container games" href="file:///D:/choccymalk.github.io/choccymalk.github.io/GB/gbio.html"><div class="game-tile"><span style="font-size:0px;position:fixed"></span>
+<div><img class="game-icon" src="file:///D:/choccymalk.github.io/choccymalk.github.io/images/gba.png" loading="lazy" alt="Gameboy Advance"></div><h1 style="font-family:Arial;" class="game-title">Gameboy Advance</h1></div></a>
+<a class="game-link container games" href="file:///D:/choccymalk.github.io/choccymalk.github.io/GB/dsio.html"><div class="game-tile"><span style="font-size:0px;position:fixed"></span>
+<div><img class="game-icon" src="file:///D:/choccymalk.github.io/choccymalk.github.io/images/ds.png" loading="lazy" alt="DS"></div><h1 style="font-family:Arial;" class="game-title">DS</h1></div></a>
+</div>
+</div>
+<center><h1>Games</h1></center>
+<section>
+<div id="games" class="flex-container">
+
+<a class="game-link container games" href="file:///D:/choccymalk.github.io/choccymalk.github.io/N64/TLOZMM/MM.html"><div class="game-tile"><span style="font-size:0px;position:fixed">idle clicker</span><div><img class="game-icon" src="file:///D:/choccymalk.github.io/choccymalk.github.io/images/mm.jpg" loading="lazy" alt="mm"></div><h1 style="font-family:Gadugi;" class="game-title">Majora's Mask</h1></div></a>
+<a class="game-link container games" href="file:///D:/choccymalk.github.io/choccymalk.github.io/N64/TLOZOOT/OOT.html"><div class="game-tile"><span style="font-size:0px;position:fixed">idle clicker</span><div><img class="game-icon" src="file:///D:/choccymalk.github.io/choccymalk.github.io/images/oot.jpg" loading="lazy" alt="oot"></div><h1 style="font-family:Gadugi;" class="game-title">Ocarina of Time</h1></div></a>
+<a class="game-link container games" href="file:///D:/choccymalk.github.io/choccymalk.github.io/N64/SM64/SM64.html"><div class="game-tile"><span style="font-size:0px;position:fixed">idle clicker</span><div><img class="game-icon" src="file:///D:/choccymalk.github.io/choccymalk.github.io/images/sm64.jpg" loading="lazy" alt="sm64"></div><h1 style="font-family:Gadugi;" class="game-title">Super Mario 64</h1></div></a>
+<a class="game-link container games" href="file:///D:/choccymalk.github.io/choccymalk.github.io/N64/MK64/MK64.html"><div class="game-tile"><span style="font-size:0px;position:fixed">idle clicker</span><div><img class="game-icon" src="file:///D:/choccymalk.github.io/choccymalk.github.io/images/mk64.jpg" loading="lazy" alt="mk64"></div><h1 style="font-family:Gadugi;" class="game-title">Mario Kart 64</h1></div></a>
+<a class="game-link container games" href="file:///D:/choccymalk.github.io/choccymalk.github.io/N64/SSB/SSB.html"><div class="game-tile"><span style="font-size:0px;position:fixed">idle clicker</span><div><img class="game-icon" src="file:///D:/choccymalk.github.io/choccymalk.github.io/images/smb.jpg" loading="lazy" alt="smb"></div><h1 style="font-family:Gadugi;" class="game-title">Super Mario Bros</h1></div></a>
+<a class="game-link container games" href="file:///D:/choccymalk.github.io/choccymalk.github.io/GB/gbio.html"><div class="game-tile"><span style="font-size:0px;position:fixed">idle clicker</span><div><img class="game-icon" src="file:///D:/choccymalk.github.io/choccymalk.github.io/images/ruby.jpg" loading="lazy" alt="ruby"></div><h1 style="font-family:Gadugi;" class="game-title">Pokemon Ruby</h1></div></a>
+<a class="game-link container games" href="file:///D:/choccymalk.github.io/choccymalk.github.io/GB/gbio.html"><div class="game-tile"><span style="font-size:0px;position:fixed">idle clicker</span><div><img class="game-icon" src="file:///D:/choccymalk.github.io/choccymalk.github.io/images/emerald.jpg" loading="lazy" alt="emerald"></div><h1 style="font-family:Gadugi;" class="game-title">Pokemon Emerald</h1></div></a>
+<a class="game-link container games" href="file:///D:/choccymalk.github.io/choccymalk.github.io/GB/gbio.html"><div class="game-tile"><span style="font-size:0px;position:fixed">idle clicker</span><div><img class="game-icon" src="file:///D:/choccymalk.github.io/choccymalk.github.io/images/firered.jpg" loading="lazy" alt="firered"></div><h1 style="font-family:Gadugi;" class="game-title">Pokemon Firered</h1></div></a>
+<a class="game-link container games" href="file:///D:/choccymalk.github.io/choccymalk.github.io/GB/gbio.html"><div class="game-tile"><span style="font-size:0px;position:fixed">idle clicker</span><div><img class="game-icon" src="file:///D:/choccymalk.github.io/choccymalk.github.io/images/metfus.jpg" loading="lazy" alt="firered"></div><h1 style="font-family:Gadugi;" class="game-title">Metroid Fusion</h1></div></a>
+<a class="game-link container games" href="file:///D:/choccymalk.github.io/choccymalk.github.io/GB/gbio.html"><div class="game-tile"><span style="font-size:0px;position:fixed">idle clicker</span><div><img class="game-icon" src="file:///D:/choccymalk.github.io/choccymalk.github.io/images/febb.jpg" loading="lazy" alt="febb"></div><h1 style="font-family:Gadugi;" class="game-title">Binding Blade</h1></div></a>
+<a class="game-link container games" href="file:///D:/choccymalk.github.io/choccymalk.github.io/GB/gbio.html"><div class="game-tile"><span style="font-size:0px;position:fixed">idle clicker</span><div><img class="game-icon" src="file:///D:/choccymalk.github.io/choccymalk.github.io/images/fe.jpg" loading="lazy" alt="fireemblem"></div><h1 style="font-family:Gadugi;" class="game-title">Fire Emblem</h1></div></a>
+<a class="game-link container games" href="file:///D:/choccymalk.github.io/choccymalk.github.io/GB/gbio.html"><div class="game-tile"><span style="font-size:0px;position:fixed">idle clicker</span><div><img class="game-icon" src="file:///D:/choccymalk.github.io/choccymalk.github.io/images/sma2.jpg" loading="lazy" alt="sma2"></div><h1 style="font-family:Gadugi;" class="game-title">Super Mario Advance 2</h1></div></a>
+<!--
+  <div><a class="game-link container games" href="file:///D:/choccymalk.github.io/choccymalk.github.io/GB/gbio.html"><div class="game-tile"><span style="font-size:0px;position:fixed"></span>
+<div><img class="game-icon" src="file:///D:/choccymalk.github.io/choccymalk.github.io/images/mm.jpg" loading="lazy" alt="mm"></div><h1 style="font-family:Arial;" class="game-title">Majora's Mask</h1></div></a>
+  <div><a class="game-link container games" href="file:///D:/choccymalk.github.io/choccymalk.github.io/GB/gbio.html"><div class="game-tile"><span style="font-size:0px;position:fixed"></span>
+<div><img class="game-icon" src="file:///D:/choccymalk.github.io/choccymalk.github.io/images/oot.jpg" loading="lazy" alt="oot"></div><h1 style="font-family:Arial;" class="game-title">Ocarina of Time</h1></div></a>
+  <div><a class="game-link container games" href="file:///D:/choccymalk.github.io/choccymalk.github.io/GB/gbio.html"><div class="game-tile"><span style="font-size:0px;position:fixed"></span>
+<div><img class="game-icon" src="file:///D:/choccymalk.github.io/choccymalk.github.io/images/smb.jpg" loading="lazy" alt="smb"></div><h1 style="font-family:Arial;" class="game-title">Super Smash Bros</h1></div></a>
+  <div><a class="game-link container games" href="file:///D:/choccymalk.github.io/choccymalk.github.io/GB/gbio.html"><div class="game-tile"><span style="font-size:0px;position:fixed"></span>
+<div><img class="game-icon" src="file:///D:/choccymalk.github.io/choccymalk.github.io/images/mk64.jpg" loading="lazy" alt="mk64"></div><h1 style="font-family:Arial;" class="game-title">Mario Kart 64</h1></div></a>
+  <div><a class="game-link container games" href="file:///D:/choccymalk.github.io/choccymalk.github.io/GB/gbio.html"><div class="game-tile"><span style="font-size:0px;position:fixed"></span>
+<div><img class="game-icon" src="file:///D:/choccymalk.github.io/choccymalk.github.io/images/sm64.jpg" loading="lazy" alt="sm64"></div><h1 style="font-family:Arial;" class="game-title">Super Mario 64</h1></div></a>
+  <div><a class="game-link container games" href="file:///D:/choccymalk.github.io/choccymalk.github.io/GB/gbio.html"><div class="game-tile"><span style="font-size:0px;position:fixed"></span>
+<div><img class="game-icon" src="file:///D:/choccymalk.github.io/choccymalk.github.io/images/alttp.jpg" loading="lazy" alt="alttp"></div><h1 style="font-family:Arial;" class="game-title">A Link to the Past</h1></div></a>
+  <div><a class="game-link container games" href="file:///D:/choccymalk.github.io/choccymalk.github.io/GB/gbio.html"><div class="game-tile"><span style="font-size:0px;position:fixed"></span>
+<div><img class="game-icon" src="file:///D:/choccymalk.github.io/choccymalk.github.io/images/minishcap.jpg" loading="lazy" alt="mc"></div><h1 style="font-family:Arial;" class="game-title">Minish Cap</h1></div></a>
+  <div><a class="game-link container games" href="file:///D:/choccymalk.github.io/choccymalk.github.io/GB/gbio.html"><div class="game-tile"><span style="font-size:0px;position:fixed"></span>
+<div><img class="game-icon" src="file:///D:/choccymalk.github.io/choccymalk.github.io/images/emerald.jpg" loading="lazy" alt="emerald"></div><h1 style="font-family:Arial;" class="game-title">Pokemon Emerald</h1></div></a>
+  <div><a class="game-link container games" href="file:///D:/choccymalk.github.io/choccymalk.github.io/GB/gbio.html"><div class="game-tile"><span style="font-size:0px;position:fixed"></span>
+<div><img class="game-icon" src="file:///D:/choccymalk.github.io/choccymalk.github.io/images/firered.jpg" loading="lazy" alt="firered"></div><h1 style="font-family:Arial;" class="game-title">Pokemon Firered</h1></div></a>
+-->
+</div>
+</section>
+</font>
 </body>
 </html>
+<!--- <a class="game-link container games" href="file:///D:/choccymalk.github.io/choccymalk.github.io/GB/gbio.html"><div class="game-tile"><span style="font-size:0px;position:fixed"></span>
+<div><img class="game-icon" src="file:///D:/choccymalk.github.io/choccymalk.github.io/images/mgb.png" loading="lazy" alt="Minecraft"></div><h1 style="font-family:Arial;" class="game-title">Minecraft</h1></div></a> -->
