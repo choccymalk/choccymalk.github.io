@@ -32,6 +32,10 @@ document.getElementById('start')
 			onload: dosbox => dosbox.run(zipUrl, exeName),
 			onrun: (dosbox, app) => {
 				console.log("Starting: '" + app + "'");
+				let application = document.getElementById('dosbox');
+					application.addEventListener("click", async () => {
+  await application.requestPointerLock();
+});
 				let fullscreen = document.getElementById('fullscreen');
 				fullscreen.style.display = '';
 				fullscreen.addEventListener('click', event => dosbox.requestFullScreen());
