@@ -11,17 +11,27 @@
      <body>
        <div id="dosbox"></div>
       <br/>
+      <p>&nbsp;</p>
        <button onclick="dosbox.requestFullScreen();">Make fullscreen</button>
-       
+       <div id="runstatus"></div>
       <script type="text/javascript" src="js-dos-api.js"></script>
       <script type="text/javascript">
-         var dosbox = new Dosbox({
+	      function runsuccess() {
+const node = document.createElement("p");
+const textnode = document.createTextNode("Run succesful");
+// Append the text node
+node.appendChild(textnode);
+document.getElementById("runstatus").appendChild(node);
+}
+	      var dosbox = new Dosbox({
           id: "dosbox",
            onload: function (dosbox) {
             dosbox.run("WIN95.zip", "./AUTOEXEC.BAT");
+
            },
           onrun: function (dosbox, app) {
-             console.log("App '" + app + "' is runned");
+             console.log(app + "started successfully");
+	     runsuccess();
            }
          });
        </script>
