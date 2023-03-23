@@ -1,3 +1,4 @@
+<center>
 <!---https://js-dos.com/cdn/js-dos-api.js-->
 <script type='text/javascript' src='http://code.jquery.com/jquery-1.9.1.js'></script>
 <script type='text/javascript' src='https://js-dos.com/cdn/js-dos-api.js'></script>
@@ -7,23 +8,38 @@ body { background: #000; color: #ddd; }
 .dosbox-container { width: 640px; height: 400px; }
 .dosbox-container > .dosbox-overlay { background-size: 640px 400px; }
 </style>
-<div id="dosbox"></div>
-<div id="tracker"></div>
-<div><label for="exe">Executable:</label> <input type="text" id="exe" value=""/> (exact name, e.g.: "./START.EXE")</div>
-<div><label for="zip">.ZIP File:</label> <input type="file" id="zip"/></div>
-<div><input type="button" id="start" value="Start"/></div>
-<p>&nbsp;</p>
+<div id="dosbox" onclick="myFunction()"></div>
+<div><label for="exe"></label><input style="display:none;" type="text" id="exe" value="ACD.EXE"/></div>
+<div><label style="display:none;" for="zip"></label><input style="display:none;" value="https://dl.dropboxusercontent.com/s/1t8tbt3lw5zgom3/ARENA.zip" type="text" id="zip"/></div>
+<div><input type="button" id="start" value="Start" onclick="hide()"/></div>
 <div><button id="fullscreen" style="display: none;">Make fullscreen</button></div>
+<script type='text/javascript'>function myFunction() {
+  document.getElementById("dosbox").style.cursor = "none";
+}
+</script>
 <script>
+let exec = document.getElementById('exe').value;
+let ziparch = document.getElementById('zip').value;
+if(exec === '' || ziparch === ''){
+		alert("I have fucked shit up, please tell me. Err: 1");
+	}
+function hide(){
+	var x = document.getElementById("start");
+		if(x.style.display === "none"){
+				x.style.display = "block";
+			} else {
+				x.style.display = "none";
+			}
+	}
 	console.clear();
 var dosbox, exeName, zipUrl = '';
 document.getElementById('zip')
 	.addEventListener('drop', event => zipUrl = URL.createObjectURL(event.dataTransfer.files[0]));
 document.getElementById('start')
 	.addEventListener('click', event => {
-		exeName = document.getElementById('exe').value;
-		zipUrl =  URL.createObjectURL(document.getElementById('zip').files[0]);
-		if(exeName === '' || zipUrl === '') return alert('Please enter .EXE name and .ZIP file');
+		exeName = "ACD.EXE";
+		zipUrl =  "https://dl.dropboxusercontent.com/s/1t8tbt3lw5zgom3/ARENA.zip";
+		if(exeName === '' || zipUrl === '') return alert('I have fucked shit up, please tell me. Err: 2');
 		dosbox = new Dosbox({
 			id: "dosbox",
 			onload: dosbox => dosbox.run(zipUrl, exeName),
@@ -103,6 +119,7 @@ function canvasLoop(e) {
 function degToRad(degrees) {
   var result = Math.PI/180 * degrees;
   return result;
-} 
+}
 </script>
 <!--- OREGON.EXE -->
+</center>
