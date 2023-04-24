@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Online Store</title>
+    <title>Shoe Haven</title>
     <style>
     /* Reset default styles */
 * {
@@ -104,6 +104,32 @@ footer {
   text-align: center;
   padding: 20px;
 }
+        .main {
+            border: 1px solid green;
+            float: left;
+            min-height: 180px;
+            margin: 2px;
+            padding: 10px;
+            min-width: 117px;
+            position: relative;
+        }
+  
+        .gfg {
+            font-size: 40px;
+            color: green;
+            font-weight: bold;
+            tect-align: center
+        }
+  
+        .geeks {
+            text-align: center;
+        }
+  
+        #bottom {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+        }
     </style>
 </head>
 <body>
@@ -117,9 +143,9 @@ footer {
             </ul>
         </nav>
     </header>
-    <main>
+    <main class="main">
+                    <h2>Featured Products</h2>
         <section class="featured">
-            <h2>Featured Products</h2>
             <div class="product">
                 <img src="product1.jpg" alt="Product 1">
                 <h3>Product 1</h3>
@@ -139,8 +165,8 @@ footer {
                 <a href="#">Add to Cart</a>
             </div>
         </section>
+        <h2>Popular Products</h2>
         <section class="popular">
-            <h2>Popular Products</h2>
             <div class="product">
                 <img src="product4.jpg" alt="Product 4">
                 <h3>Product 4</h3>
@@ -161,8 +187,8 @@ footer {
             </div>
         </section>
     </main>
-    <footer>
-        <p>&copy; 2023 Online Store</p>
+    <footer id="bottom">
+        <p>&copy; 2023 Shoe Haven</p>
     </footer>
 </body>
 </html>
