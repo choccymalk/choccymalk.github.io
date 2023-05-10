@@ -267,7 +267,7 @@
 	}
 	</style>
 	<style type="text/css" id="operaUserStyle"></style></head>
-	<body style="background: #121212;">
+	<body onload="checkCookieHasASpecificValue()" style="background: #121212;">
 	<div class="parent">
 	<div><h1>New and Most Popular</h1></div>
 	</div>
@@ -328,11 +328,14 @@
 	</section>
 	<p style="color:white">Suggestions? Send them to <a href="mailto:choccymalkinquiries@gmail.com">choccymalkinquiries@gmail.com</a>!</p>
 		<p style="color:white">Donate! $BTC, Lightning 03c52be8746f9a6319b8012f7a47355f19613e4ee8603877f280c508eba4cfe784</p>
-		<a href="#" style="color:white" onclick="document.cookie = 'username=John Doe';location.reload();">Light Mode</a>
-		<script>
-			if( document.cookie.indexOf("cookiename=username") < 1) {
-    location.href = "indexlight.html";
+		<a href="indexlight.html" style="color:white" onclick="document.cookie = 'reader=1; SameSite=None; Secure';">Light Mode</a>
+	<script>
+function checkCookieHasASpecificValue() {
+  if (document.cookie.split(";").some((item) => item.includes("reader=1"))) {
+    window.location.replace(
+  "indexlight.html"
+);
+  }
 }
-		
-		</script>
+  </script>
 	</body></html>
