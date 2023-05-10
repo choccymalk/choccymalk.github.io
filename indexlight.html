@@ -328,5 +328,17 @@
 	</section>
 	<p style="color:black">Suggestions? Send them to <a href="mailto:choccymalkinquiries@gmail.com">choccymalkinquiries@gmail.com</a>!</p>
 		<p style="color:black">Donate! $BTC, Lightning 03c52be8746f9a6319b8012f7a47355f19613e4ee8603877f280c508eba4cfe784</p>
-	
+		<a href="/" style="color:black" onclick="deleteAllCookies();">Dark Mode</a>
+	<script>
+		function deleteAllCookies() {
+    const cookies = document.cookie.split(";");
+
+    for (let i = 0; i < cookies.length; i++) {
+        const cookie = cookies[i];
+        const eqPos = cookie.indexOf("=");
+        const name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
+        document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT";
+    }
+}
+		</script>
 	</body></html>
