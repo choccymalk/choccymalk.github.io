@@ -1,7 +1,5 @@
 var ROMLIST = [
-    /*
-    {url:"roms/rom1.z64",title:"Game 1"},
-    {url:"roms/rom2.v64",title:"Game 2"},
-    {url:"roms/rom3.v64",title:"Game 3"},
-    */
+    {url:"https://choccymalk.github.io/N64/TLOZMM/mm.z64",title:"Majora's Mask"},
+    {url:"https://choccymalk.github.io/N64/TLOZOOT/oot.z64",title:"Ocarina of Time"},
+    {url:"https://choccymalk.github.io/N64/MK64/mk64.z64",title:"Mario Kart 64"},
 ];
