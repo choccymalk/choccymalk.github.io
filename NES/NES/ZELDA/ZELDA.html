@@ -1,0 +1,59 @@
+
+
+<!doctype html>
+<html>
+<head>
+<title>Super Mario Bros</title>
+<style>
+    body {
+        font-weight: bold;
+    color: #eee;
+    background: #121212;
+    font-family:Gadugi;
+    }
+    iframe {
+       display: none;
+       visibility: hidden;
+    }
+    div:has(+ iframe) {
+       display: none;
+       visibility: hidden;
+    }
+    div{
+        border-radius:10px;
+    }
+    @font-face {
+       font-family: gadugi;
+       src: url(/gadugi.ttf);
+    }
+    </style>
+<style>
+iframe {
+   display: none;
+   visibility: hidden;
+}
+div:has(+ iframe) {
+   display: none;
+   visibility: hidden;
+}
+</style>
+</head><body><center>
+<h2>Legend of Zelda</h2>
+
+<script>
+            EJS_player = '#game';
+            EJS_core = 'nes';
+            EJS_gameName = 'Zelda';
+            EJS_color = '#0064ff';
+	EJS_pathtodata = "https://raw.githack.com/EmulatorJS/EmulatorJS/main/data/";
+    // URL to Game rom
+    EJS_gameUrl = 'Legend of Zelda, The (U) (PRG 0).nes.zip';
+    
+</script>
+<div style="width:640px;height:480px;max-width:100%">
+        <div id="game"></div>
+      </div>
+<script src="https://raw.githack.com/EmulatorJS/EmulatorJS/main/data/loader.js"></script>
+</center>
+</body>
+</html>
