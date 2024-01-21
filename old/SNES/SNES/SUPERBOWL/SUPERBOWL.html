@@ -1,0 +1,109 @@
+<!doctype html>
+<html>
+<head>
+<title>Super Bowl</title>
+<style>
+    body {
+        font-weight: bold;
+    color: #eee;
+    background: #121212;
+    font-family:Gadugi;
+    }
+    iframe {
+       display: none;
+       visibility: hidden;
+    }
+    div:has(+ iframe) {
+       display: none;
+       visibility: hidden;
+    }
+    div{
+        border-radius:10px;
+    }
+    @font-face {
+       font-family: gadugi;
+       src: url(/gadugi.ttf);
+    }
+    </style>
+<style>
+iframe {
+   display: none;
+   visibility: hidden;
+}
+div:has(+ iframe) {
+   display: none;
+   visibility: hidden;
+}
+</style>
+</head><body><center>
+<h2>Super Bowl</h2>
+
+<script>
+            EJS_player = '#game';
+            EJS_core = 'snes';
+            EJS_gameName = 'super bowl';
+            EJS_color = '#0064ff';
+	EJS_pathtodata = "https://rawcdn.githack.com/EmulatorJS/EmulatorJS/fcbb672112c2772541adf555375a32329e922850/data/";
+    // URL to Game rom
+    EJS_gameUrl = 'superbowl.sfc';
+    
+</script>
+<div style="width:640px;height:480px;max-width:100%">
+        <div id="game"></div>
+      </div>
+<p>DD66-14AC	Player 1 touchdowns worth 0 points
+D766-14AC	Player 1 touchdowns worth 3 points
+D966-14AC	Player 1 touchdowns worth 5 points
+D666-14AC	Player 1 touchdowns worth 8 points
+DD61-34DC	Player 1 extra points worth 0 points
+D761-34DC	Player 1 extra points worth 3 points
+D961-34DC	Player 1 extra points worth 5 points
+DB61-34DC	Player 1 extra points worth 9 points
+DD63-37AB	Player 1 field goals worth 0 points
+DF63-37AB	Player 1 field goals worth 1 points
+D963-37AB	Player 1 field goals worth 5 points
+DB63-37AB	Player 1 field goals worth 9 points
+DDB0-17AB	Player 1 safeties worth 0 points
+DFB0-17AB	Player 1 safeties worth 1 points
+D9B0-17AB	Player 1 safeties worth 5 points
+DBB0-17AB	Player 1 safeties worth 9 points
+DDCE-34A8 + DDBB-176B	Player 2 touchdowns worth 0 points
+D7CE-34A8 + D7BB-176B	Player 2 touchdowns worth 3 points
+D9CE-34A8 + D9BB-176B	Player 2 touchdowns worth 5 points
+DBCE-34A8 + DBBB-176B	Player 2 touchdowns worth 9 points
+DDB5-34AB	Player 2 extra points worth 0 points
+D7B5-34AB	Player 2 extra points worth 3 points
+D9B5-34AB	Player 2 extra points worth 5 points
+DBB5-34AB	Player 2 extra points worth 9 points
+DDBD-4DDB	Player 2 field goals worth 0 points
+DFBD-4DDB	Player 2 field goals worth 1 points
+D9BD-4DDB	Player 2 field goals worth 5 points
+DBBD-4DDB	Player 2 field goals worth 9 points
+DD67-17DC	Player 2 safeties worth 0 points
+DF67-17DC	Player 2 safeties worth 1 points
+D967-17DC	Player 2 safeties worth 5 points
+DB67-17DC	Player 2 safeties worth 9 points
+DDA5-1F2D	Both players get 0 timeouts for the first half
+D4A5-1F2D	Both players get 2 timeouts for the first half
+D5A5-1F2D	Both players get 7 timeouts for the first half
+DBA5-1F2D	Both players get 9 timeouts for the first half
+10A5-14FD	Player 1 gets 0 timeouts for the first half
+10A5-14BD	Player 2 gets 0 timeouts for the first half
+DDAA-14FD	Both players get 0 timeouts for the second half
+D4AA-14FD	Both players get 2 timeouts for the second half
+D5AA-14FD	Both players get 7 timeouts for the second half
+DBAA-14FD	Both players get 9 timeouts for the second half
+10AA-149D	Player 1 gets 0 timeouts for the second half
+10AA-142D	Player 2 gets 0 timeouts for the second half
+C9AA-149D	Player 1's timeouts are not reset at half-time
+C9AA-142D	Player 2's timeouts are not reset at half-time
+DFBA-170C	1 play to get a 1st down
+D4BA-170C	2 plays to get a 1st down
+D7BA-170C	3 plays to get a 1st down
+D9BA-170C	5 plays to get a 1st down
+D5BA-170C	7 plays to get a 1st down
+C9BA-14DC	Always 1st down</p>
+<script src="https://rawcdn.githack.com/EmulatorJS/EmulatorJS/fcbb672112c2772541adf555375a32329e922850/data/loader.js"></script>
+</center>
+</body>
+</html>

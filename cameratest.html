@@ -1,0 +1,139 @@
+<!--<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Camera Upload</title>
+</head>
+<body>
+    <h1>Camera Upload</h1>
+    <video id="camera" width="640" height="480" autoplay></video>
+    <button onclick="takePicture()">Take Picture</button>
+--><!--
+    <script>
+        async function takePicture() {
+            const video = document.getElementById('camera');
+
+            try {
+                // Access the user's camera
+                const stream = await navigator.mediaDevices.getUserMedia({ video: true });
+                video.srcObject = stream;
+
+                // Wait for the video to be loaded and play
+                video.onloadedmetadata = () => {
+                    video.play();
+                };
+
+                // Capture a frame from the video
+                const canvas = document.createElement('canvas');
+                canvas.width = video.videoWidth;
+                canvas.height = video.videoHeight;
+                const context = canvas.getContext('2d');
+                context.drawImage(video, 0, 0, canvas.width, canvas.height);
+
+                // Convert the canvas to a data URL representing a PNG
+                const dataUrl = canvas.toDataURL('image/png');
+
+                // Close the camera stream
+                stream.getTracks().forEach(track => track.stop());
+
+                // Upload the image to the server
+                uploadImage(dataUrl);
+            } catch (error) {
+                console.error('Error accessing camera:', error);
+            }
+        }
+
+        function uploadImage(dataUrl) {
+            // Replace 'your-server-endpoint' with the actual server endpoint for image upload
+            const serverEndpoint = 'your-server-endpoint';
+
+            // Convert data URL to Blob
+            const blob = dataURItoBlob(dataUrl);
+
+            // Create a FormData object to send the image
+            const formData = new FormData();
+            formData.append('image', blob, 'image.png');
+
+            // Use fetch to upload the image
+            fetch(serverEndpoint, {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Image uploaded successfully:', data);
+            })
+            .catch(error => {
+                console.error('Error uploading image:', error);
+            });
+        }
+
+        function dataURItoBlob(dataUrl) {
+            const arr = dataUrl.split(',');
+            const mime = arr[0].match(/:(.*?);/)[1];
+            const bstr = atob(arr[1]);
+            let n = bstr.length;
+            const u8arr = new Uint8Array(n);
+            while (n--) {
+                u8arr[n] = bstr.charCodeAt(n);
+            }
+            return new Blob([u8arr], { type: mime });
+        }
+    </script>
+</body>
+</html>
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Camera Upload</title>
+</head>
+<body>
+    <h1>Camera Upload</h1>
+    <video id="camera" width="640" height="480" autoplay></video>
+    <button onclick="initializeCamera()">Take Picture</button>
+
+    <script>
+        async function initializeCamera() {
+            const video = document.getElementById('camera');
+
+            try {
+                // Ensure that the user has interacted with the page before trying to access the camera
+                await requestUserInteraction();
+
+                // Access the user's camera
+                const stream = await navigator.mediaDevices.getUserMedia({ video: true });
+                video.srcObject = stream;
+
+                // Wait for the video to be loaded and play
+                video.onloadedmetadata = () => {
+                    video.play();
+                };
+            } catch (error) {
+                console.error('Error accessing camera:', error);
+            }
+        }
+
+        function requestUserInteraction() {
+            // Create a dummy track to prompt the user for interaction
+            return new Promise((resolve) => {
+                const dummyAudio = document.createElement('audio');
+                dummyAudio.muted = true;
+                dummyAudio.srcObject = new MediaStream([{ audio: true }]);
+                dummyAudio.play().then(() => {
+                    dummyAudio.pause();
+                    dummyAudio.srcObject.getTracks().forEach(track => track.stop());
+                    resolve();
+                });
+            });
+        }
+
+        // The rest of the code for capturing and uploading the image remains unchanged
+        // ...
+
+    </script>
+</body>
+</html>

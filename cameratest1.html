@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Camera Upload</title>
+</head>
+<body>
+    <h1>Camera Upload</h1>
+    <video id="camera" width="640" height="480" autoplay></video>
+    <button onclick="initializeCamera()">Take Picture</button>
+
+    <script>
+        async function initializeCamera() {
+            const video = document.getElementById('camera');
+
+            try {
+                // Ensure that the user has interacted with the page before trying to access the camera
+                await requestUserInteraction();
+
+                // Access the user's camera
+                const stream = await navigator.mediaDevices.getUserMedia({ video: true });
+                video.srcObject = stream;
+
+                // Wait for the video to be loaded and play
+                video.onloadedmetadata = () => {
+                    video.play();
+                };
+            } catch (error) {
+                console.error('Error accessing camera:', error);
+            }
+        }
+
+        function requestUserInteraction() {
+            // Create a dummy track to prompt the user for interaction
+            return new Promise((resolve) => {
+                const dummyAudio = document.createElement('audio');
+                dummyAudio.muted = true;
+                
+                // Create a MediaStream with an empty audio track
+                const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+                const oscillator = audioContext.createOscillator();
+                const mediaStream = audioContext.createMediaStreamDestination().stream;
+                oscillator.connect(mediaStream);
+                
+                dummyAudio.srcObject = mediaStream;
+                
+                // Play the dummy audio to prompt user interaction
+                dummyAudio.play().then(() => {
+                    dummyAudio.pause();
+                    dummyAudio.srcObject.getTracks().forEach(track => track.stop());
+                    resolve();
+                });
+            });
+        }
+
+        // The rest of the code for capturing and uploading the image remains unchanged
+        // ...
+
+    </script>
+</body>
+</html>

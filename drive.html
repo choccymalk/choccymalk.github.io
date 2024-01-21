@@ -1,0 +1,80 @@
+<script src="https://cdn.jsdelivr.net/gh/tanaikech/ResumableUploadForGoogleDrive_js/resumableupload_js.min.js"></script>
+<script src="https://apis.google.com/js/api.js"></script>
+<body>
+  <form>
+    <input name="file" id="uploadfile" type="file" />
+  </form>
+  <div id="progress"></div>
+</body>
+<script>
+    function start() {
+      // 2. Initialize the JavaScript client library.
+      gapi.client.init({
+        'apiKey': 'AIzaSyB3hOdqUPE6W0cGiEov0gV0q7q9H0hj96Y',
+        // Your API key will be automatically added to the Discovery Document URLs.
+        'discoveryDocs': ['https://people.googleapis.com/$discovery/rest'],
+        // clientId and scope are optional if auth is not required.
+        'clientId': '781423376832-jdsss9krlghkl5mf0fl917r6q21qu61k.apps.googleusercontent.com',
+        'scope': 'profile',
+      }).then(function() {
+        // 3. Initialize and make the API request.
+        return gapi.client.people.people.get({
+          'resourceName': 'people/me',
+          'requestMask.includeField': 'person.names'
+        });
+      }).then(function(response) {
+        console.log(response.result);
+      }, function(reason) {
+        console.log('Error: ' + reason.result.error.message);
+      });
+    };
+    // 1. Load the JavaScript client library.
+    gapi.load('client', start);
+    </script>
+<script>
+  const accessToken = gapi.auth.getToken().access_token; // Please set access token here.
+
+  document.getElementById("uploadfile").addEventListener("change", run, false);
+
+  function run(obj) {
+    const file = obj.target.files[0];
+    if (file.name != "") {
+      let fr = new FileReader();
+      fr.fileName = file.name;
+      fr.fileSize = file.size;
+      fr.fileType = file.type;
+      fr.readAsArrayBuffer(file);
+      fr.onload = resumableUpload;
+    }
+  }
+
+  function resumableUpload(e) {
+    document.getElementById("progress").innerHTML = "Initializing.";
+    const f = e.target;
+    const resource = {
+      fileName: f.fileName,
+      fileSize: f.fileSize,
+      fileType: f.fileType,
+      fileBuffer: f.result,
+      accessToken: accessToken,
+    };
+    const ru = new ResumableUploadToGoogleDrive();
+    ru.Do(resource, function (res, err) {
+      if (err) {
+        console.log(err);
+        return;
+      }
+      console.log(res);
+      let msg = "";
+      if (res.status == "Uploading") {
+        msg =
+          Math.round(
+            (res.progressNumber.current / res.progressNumber.end) * 100
+          ) + "%";
+      } else {
+        msg = res.status;
+      }
+      document.getElementById("progress").innerText = msg;
+    });
+  }
+</script>

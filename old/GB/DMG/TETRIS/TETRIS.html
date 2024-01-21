@@ -1,0 +1,56 @@
+<!doctype html>
+<html>
+<head>
+<title>TETRIS</title>
+<style>
+    body {
+        font-weight: bold;
+    color: #eee;
+    background: #121212;
+    font-family:Gadugi;
+    }
+    iframe {
+       display: none;
+       visibility: hidden;
+    }
+    div:has(+ iframe) {
+       display: none;
+       visibility: hidden;
+    }
+    div{
+        border-radius:10px;
+    }
+    @font-face {
+       font-family: gadugi;
+       src: url(/gadugi.ttf);
+    }
+    </style>
+<style>
+iframe {
+   display: none;
+   visibility: hidden;
+}
+div:has(+ iframe) {
+   display: none;
+   visibility: hidden;
+}
+</style>
+</head><body><center>
+<h2>Tetris</h2>
+
+<script>
+    EJS_player = '#game';
+    EJS_core = 'gb';
+    EJS_biosUrl = 'https://choccymalk.github.io/GB/dmg_rom.bin';
+	EJS_pathtodata = "https://rawcdn.githack.com/EmulatorJS/EmulatorJS/fcbb672112c2772541adf555375a32329e922850/data/";
+    // URL to Game rom
+    EJS_gameUrl = 'https://choccymalk.github.io/GB/DMG/TETRIS/tetris.gb';
+    
+</script>
+<div style="width:640px;height:480px;max-width:100%">
+        <div id="game"></div>
+      </div>
+<script src="https://rawcdn.githack.com/EmulatorJS/EmulatorJS/fcbb672112c2772541adf555375a32329e922850/data/loader.js"></script>
+</center>
+</body>
+</html>

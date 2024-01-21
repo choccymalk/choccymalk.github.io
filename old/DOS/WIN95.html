@@ -1,0 +1,39 @@
+<!doctype html>
+   <html lang="en-us">
+     <head>
+       <meta charset="utf-8">
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+      <title>WIN95</title>
+     <style type="text/css">
+        .dosbox-container { width: 640px; height: 400px; }
+       </style>
+     </head>
+     <body>
+       <div id="dosbox"></div>
+      <br/>
+      <p>&nbsp;</p>
+       <button onclick="dosbox.requestFullScreen();">Make fullscreen</button>
+       <div id="runstatus"></div>
+      <script type="text/javascript" src="js-dos-api.js"></script>
+      <script type="text/javascript">
+	      function runsuccess() {
+const node = document.createElement("p");
+const textnode = document.createTextNode("Run succesful");
+// Append the text node
+node.appendChild(textnode);
+document.getElementById("runstatus").appendChild(node);
+}
+	      var dosbox = new Dosbox({
+          id: "dosbox",
+           onload: function (dosbox) {
+            dosbox.run("WIN95.zip", "./AUTOEXEC.BAT");
+
+           },
+          onrun: function (dosbox, app) {
+             console.log(app + "started successfully");
+	     runsuccess();
+           }
+         });
+       </script>
+     </body>
+   </html>

@@ -1,348 +1,99 @@
 <!DOCTYPE html>
-<html><head>
-	<title>Untitled</title>
-	<style>
-		@font-face {
-	   font-family: Gadugi;
-	   src: url(/gadugi.ttf);
-	}
-	body {
-		background: #121212;
-		font-weight: bold;
-	font-family:Gadugi;
-	vertical-align: top;
-	background-image: url(mountain.png);
-	background-position: center center;
-	background-repeat:no-repeat;
-	background-attachment: fixed;
-	background-size: cover; 
-	}
-	
-	body::-webkit-scrollbar {
-	 display: none;
-	}
-	
-	body {
-	  -ms-overflow-style: none; 
-	  scrollbar-width: none;  
-	  font-family:Gadugi;
-	}
-	
-	.whiteButton {
-	position: absolute;
-	top: 0px;
-	right: 0px;
-	display: flex;
-	}
-		  
-	.whitebutton {
-	background-color: Transparent;
-	background-repeat:no-repeat;
-	border: none;
-	cursor: default;
-	overflow: hidden;
-	outline:none;
-	font-size:0.25em;
-	}
-	
-	.blueContainer {
-	background-color:#79ceea;
-	text-align:center; 
-	border-radius: 10px;
-	}
-	
-	.f-newest {
-	border-radius: 5px;
-	text-align:center; 
-	overflow-x: scroll;
-	font-family:Gadugi;
-	}
-	
-	.consoles {
-	display: grid;
-	text-align: center;
-	font-family:Gadugi;
-	grid-template-columns: 0.5fr 0.5fr 0.5fr 0.5fr 0fr;
-	}
-	  
-		.text-center {
-		  text-align: center;
-		  font-family:Gadugi;
-		}
-	  
-		.game-link {
-		  height: 250px;
-		  width: 200px;
-		  margin: 5px;
-		  font-family:Gadugi;
-		}
-	  
-		.game-tile {
-		  background-color: #292929;
-		  height: 250px;
-		  width: 200px;
-		  border-radius: 30px;
-		  -webkit-animation: scale-down-center 0.1s both;
-		  animation: scale-down-center 0.1s both;
-		  font-family:Gadugi;
-		}
-	  
-		.game-tile:hover {
-		  -webkit-animation: scale-up-center 0.1s both;
-		  animation: scale-up-center 0.1s both;
-		  font-weight: bold;
-		  cursor: pointer;
-		  font-family:Gadugi;
-		}
-		
-		.game-tile:hover .game-title{
-		  font-size: bold;
-		  cursor: pointer;
-		  font-family:Gadugi;
-		}
-	  
-		@-webkit-keyframes scale-up-center {
-		  0% {
-			-webkit-transform: scale(1);
-			transform: scale(1);
-		  }
-	  
-		  100% {
-			-webkit-transform: scale(1.1);
-			transform: scale(1.1);
-		  }
-		}
-	  
-		@-webkit-keyframes scale-down-center {
-		  0% {
-			-webkit-transform: scale(1.1);
-			transform: scale(1.1);
-		  }
-	  
-		  100% {
-			-webkit-transform: scale(1);
-			transform: scale(1);
-		  }
-		}
-	  
-		.game-icon {
-		  border-radius: 15px;
-		  width: 200px;
-		  height: 200px;
-		}
-	  
-		.game-title {
-		  font-size: 18px;
-		  text-align: center;
-		  font-family: "roboto";
-		}
-	  
-		.flex-container {
-		  display: flex;
-		  text-align: center;
-		  flex-direction: row;
-		  order: 0;
-		  flex-grow: 0;
-		  flex-wrap: wrap;
-		}
-		.flex-container1 {
-		  justify-content: center;
-		  display: flex;
-		  text-align: center;
-		  flex-direction: row;
-		  order: 0;
-		  flex-grow: 0;
-		  flex-wrap: wrap;
-		}
-		.flex-container2 {
-		  justify-content: center;
-		  display: flex;
-		  text-align: center;
-		  flex-direction: row;
-		  order: 0;
-		  flex-grow: 0;
-		  flex-wrap: wrap;
-		}
-	  
-		.container {
-		  padding: 10px;
-		}
-	  
-		#searchQuery {
-		  width: calc(50% + 100px);
-		  border: 3px solid #ddd;
-		  border-radius: 10px;
-		  margin: 10px;
-		  padding: 5px;
-		}
-		
-	  h2 {
-	   width: 100%; 
-	   margin: 10px 0 20px; 
-	  } 
-	
-	  h2 span { 
-		padding:0 10px; 
-	  }
-	  .topcorner{
-	  position:absolute;
-	  top:10;
-	  right:15;
-	  }
-	  .chat{
-	background-color:skyblue;
-	font-size: 16px;
-	padding: 12px 24px;
-	  }
-	  .niceButton {
-	background-color: #98d6ee;
-	border: 1px solid black;
-	  }
-	  .niceButton:hover {
-	  font-weight: bold;
-	  }  
-	  
-	.close{ 
-	font-size: 30px;
-	background-color:white;
-	color:black;
-	border:1px solid black;
-	margin: 5px;
-	border-radius:50px;
-	}
-	
-	@media (prefers-color-scheme: dark) {
-	  body {
-		font-weight: bold;
-		font-family:Gadugi;
-		color: #eee;
-		background: #121212;
-		font-family:Gadugi;
-	  }
-	  body a {
-		color: #809fff;
-	  }
-	  .whitebutton {
-	  color: #eee;
-	  }
-	  .blueContainer {
-	background-color:#191919;
-	 }
-	 .chat { 
-	background-color:#383838; 
-	 }
-	  #searchQuery {
-	color: #eee;
-	background-color:#383838;  
-	border: 3px solid #292929;
-	  }
-	   img {
-		filter: brightness(.9) contrast(1);
-	  }
-	  .close{
-	background-color:#323232;
-	color:white;
-	border:1px solid white;
-	font-weight: bold;
-	 }
-	   .niceButton {
-	border: 1px solid white;
-	color: #eee;
-	background-color:#393939;
-	  }
-	}  
-	h1 {
-	color:#c9ced1;
-	font-family:Gadugi;
-	}
-	a {
-	text-decoration:none;
-	}
-	.game-tile {
-		  background-color: #292929;
-		  font-family:Gadugi;
-	  }
-	  .parent {
-	  text-align: center;
-	}
-	</style>
-	<style type="text/css" id="operaUserStyle"></style></head>
-	<body onload="checkCookieHasASpecificValue()" style="background: #121212;">
-	<div class="parent">
-	<div><h1>New and Most Popular</h1></div>
-	</div>
-	<div class="flex-container1">
-	<a class="game-link container games" href="/SNES/SNES/SUPERBOWL/SUPERBOWL.html"><div class="game-tile"><span style="font-size:0px;position:fixed">idle clicker</span><div><img class="game-icon" src="" loading="lazy" alt="superbowl"></div><h1 style="font-family:Gadugi;" class="game-title">Super Bowl</h1></div></a>
-		<a class="game-link container games" href="/GB/DMG/TETRIS/TETRIS.html"><div class="game-tile"><span style="font-size:0px;position:fixed">idle clicker</span><div><img class="game-icon" src="/images/tetrisdmg.jpg" loading="lazy" alt="yellow"></div><h1 style="font-family:Gadugi;" class="game-title">Tetris</h1></div></a>
-	</div>
-	<center><h1>Games</h1></center>
-	<section>
-	<div id="games" class="flex-container1">
-	
-	<a class="game-link container games" href="/MinecraftIndex/index.html"><div class="game-tile"><span style="font-size:0px;position:fixed">idle clicker</span><div><img class="game-icon" src="/images/mgb.png" loading="lazy" alt="minecraft"></div><h1 style="font-family:Gadugi;" class="game-title">Minecraft</h1></div></a>
-	<a class="game-link container games" href="/N64/TLOZMM/MM.html"><div class="game-tile"><span style="font-size:0px;position:fixed">idle clicker</span><div><img class="game-icon" src="/images/mm.jpg" loading="lazy" alt="mm"></div><h1 style="font-family:Gadugi;" class="game-title">Majora's Mask</h1></div></a>
-	<a class="game-link container games" href="/N64/TLOZOOT/OOT.html"><div class="game-tile"><span style="font-size:0px;position:fixed">idle clicker</span><div><img class="game-icon" src="/images/oot.jpg" loading="lazy" alt="oot"></div><h1 style="font-family:Gadugi;" class="game-title">Ocarina of Time</h1></div></a>
-	<a class="game-link container games" href="/N64/SM64/SM64.html"><div class="game-tile"><span style="font-size:0px;position:fixed">idle clicker</span><div><img class="game-icon" src="/images/sm64.jpg" loading="lazy" alt="sm64"></div><h1 style="font-family:Gadugi;" class="game-title">Super Mario 64</h1></div></a>
-	<a class="game-link container games" href="/N64/MK64/MK64.html"><div class="game-tile"><span style="font-size:0px;position:fixed">idle clicker</span><div><img class="game-icon" src="/images/mk64.jpg" loading="lazy" alt="mk64"></div><h1 style="font-family:Gadugi;" class="game-title">Mario Kart 64</h1></div></a>
-	<a class="game-link container games" href="/N64/SSB/SSB.html"><div class="game-tile"><span style="font-size:0px;position:fixed">idle clicker</span><div><img class="game-icon" src="/images/smb.jpg" loading="lazy" alt="smb"></div><h1 style="font-family:Gadugi;" class="game-title">Super Mario Bros</h1></div></a>
-	<a class="game-link container games" href="/GB/GBA/RUBY/RUBY.html"><div class="game-tile"><span style="font-size:0px;position:fixed">idle clicker</span><div><img class="game-icon" src="/images/ruby.jpg" loading="lazy" alt="ruby"></div><h1 style="font-family:Gadugi;" class="game-title">Pokemon Ruby</h1></div></a>
-	<a class="game-link container games" href="/GB/GBA/EMERALD/EMERALD.html"><div class="game-tile"><span style="font-size:0px;position:fixed">idle clicker</span><div><img class="game-icon" src="/images/emerald.jpg" loading="lazy" alt="emerald"></div><h1 style="font-family:Gadugi;" class="game-title">Pokemon Emerald</h1></div></a>
-	<a class="game-link container games" href="/GB/GBA/FIRERED/FIRERED.html"><div class="game-tile"><span style="font-size:0px;position:fixed">idle clicker</span><div><img class="game-icon" src="/images/firered.jpg" loading="lazy" alt="firered"></div><h1 style="font-family:Gadugi;" class="game-title">Pokemon Firered</h1></div></a>
-	<a class="game-link container games" href="/GB/GBA/METFUS/METFUS.html"><div class="game-tile"><span style="font-size:0px;position:fixed">idle clicker</span><div><img class="game-icon" src="/images/metfus.jpg" loading="lazy" alt="firered"></div><h1 style="font-family:Gadugi;" class="game-title">Metroid Fusion</h1></div></a>
-	<a class="game-link container games" href="/GB/GBA/FEBB/FEBB.html"><div class="game-tile"><span style="font-size:0px;position:fixed">idle clicker</span><div><img class="game-icon" src="/images/febb.jpg" loading="lazy" alt="febb"></div><h1 style="font-family:Gadugi;" class="game-title">Binding Blade</h1></div></a>
-	<a class="game-link container games" href="/GB/GBA/FENTSC/FENTSC.html"><div class="game-tile"><span style="font-size:0px;position:fixed">idle clicker</span><div><img class="game-icon" src="/images/fe.jpg" loading="lazy" alt="fireemblem"></div><h1 style="font-family:Gadugi;" class="game-title">Fire Emblem</h1></div></a>
-	<a class="game-link container games" href="/GB/GBA/SMA2/SMA2.html"><div class="game-tile"><span style="font-size:0px;position:fixed">idle clicker</span><div><img class="game-icon" src="/images/sma2.jpg" loading="lazy" alt="sma2"></div><h1 style="font-family:Gadugi;" class="game-title">Super Mario Advance 2</h1></div></a>
-	<a class="game-link container games" href="/GB/GBA/TLOZLTTP/LTTP.html"><div class="game-tile"><span style="font-size:0px;position:fixed">idle clicker</span><div><img class="game-icon" src="/images/alttp.jpg" loading="lazy" alt="sma2"></div><h1 style="font-family:Gadugi;" class="game-title">A Link to the Past</h1></div></a>
-	<a class="game-link container games" href="/GB/GBA/TLOZMC/MC.html"><div class="game-tile"><span style="font-size:0px;position:fixed">idle clicker</span><div><img class="game-icon" src="/images/minishcap.jpg" loading="lazy" alt="sma2"></div><h1 style="font-family:Gadugi;" class="game-title">Minish Cap</h1></div></a>
-	<a class="game-link container games" href="/GB/DMG/RED/RED.html"><div class="game-tile"><span style="font-size:0px;position:fixed">idle clicker</span><div><img class="game-icon" src="/images/red.jpg" loading="lazy" alt="red"></div><h1 style="font-family:Gadugi;" class="game-title">Pokemon Red</h1></div></a>
-	<a class="game-link container games" href="/GB/DMG/BLUE/BLUE.html"><div class="game-tile"><span style="font-size:0px;position:fixed">idle clicker</span><div><img class="game-icon" src="/images/blue.jpg" loading="lazy" alt="blue"></div><h1 style="font-family:Gadugi;" class="game-title">Pokemon Blue</h1></div></a>
-	<a class="game-link container games" href="/GB/DMG/YELLOW/YELLOW.html"><div class="game-tile"><span style="font-size:0px;position:fixed">idle clicker</span><div><img class="game-icon" src="/images/yellow.jpg" loading="lazy" alt="yellow"></div><h1 style="font-family:Gadugi;" class="game-title">Pokemon Yellow</h1></div></a>
-	<a class="game-link container games" href="/GB/DMG/TETRIS/TETRIS.html"><div class="game-tile"><span style="font-size:0px;position:fixed">idle clicker</span><div><img class="game-icon" src="/images/tetrisdmg.jpg" loading="lazy" alt="yellow"></div><h1 style="font-family:Gadugi;" class="game-title">Tetris</h1></div></a>
-	<a class="game-link container games" href="/GB/DMG/SML/SML.html"><div class="game-tile"><span style="font-size:0px;position:fixed">idle clicker</span><div><img class="game-icon" src="/images/smldmg.jpg" loading="lazy" alt="yellow"></div><h1 style="font-family:Gadugi;" class="game-title">Super Mario Land</h1></div></a>
-	<a class="game-link container games" href="/GB/DMG/TLOZLA/TLOZLA.html"><div class="game-tile"><span style="font-size:0px;position:fixed">idle clicker</span><div><img class="game-icon" src="/images/linkgetsup.png" loading="lazy" alt="yellow"></div><h1 style="font-family:Gadugi;" class="game-title">Link's Awakening</h1></div></a>
-	<a class="game-link container games" href="/GB/GBC/GOLD/GOLD.html"><div class="game-tile"><span style="font-size:0px;position:fixed">idle clicker</span><div><img class="game-icon" src="/images/gold.png" loading="lazy" alt="gold"></div><h1 style="font-family:Gadugi;" class="game-title">Pokemon Gold</h1></div></a>
-	<a class="game-link container games" href="/GB/GBC/SILVER/SILVER.html"><div class="game-tile"><span style="font-size:0px;position:fixed">idle clicker</span><div><img class="game-icon" src="/images/silver.png" loading="lazy" alt="silver"></div><h1 style="font-family:Gadugi;" class="game-title">Pokemon Silver</h1></div></a>
-	<a class="game-link container games" href="/GB/GBC/CRYSTAL/CRYSTAL.html"><div class="game-tile"><span style="font-size:0px;position:fixed">idle clicker</span><div><img class="game-icon" src="/images/crystal.png" loading="lazy" alt="crystal"></div><h1 style="font-family:Gadugi;" class="game-title">Pokemon Crystal</h1></div></a>
-	<a class="game-link container games" href="/GB/GBC/LAGX/LAGX.html"><div class="game-tile"><span style="font-size:0px;position:fixed">idle clicker</span><div><img class="game-icon" src="/images/ladx.jpg" loading="lazy" alt="crystal"></div><h1 style="font-family:Gadugi;" class="game-title">Link's Awakening DX</h1></div></a>
-	<a class="game-link container games" href="/GB/GBC/SMBD/SMBD.html"><div class="game-tile"><span style="font-size:0px;position:fixed">idle clicker</span><div><img class="game-icon" src="/images/smbd.jpg" loading="lazy" alt="crystal"></div><h1 style="font-family:Gadugi;" class="game-title">Super Mario Bros Deluxe</h1></div></a>
-	<a class="game-link container games" href="/GB/GBC/OOS/OOS.html"><div class="game-tile"><span style="font-size:0px;position:fixed">idle clicker</span><div><img class="game-icon" src="/images/oracleofseasons.jpg" loading="lazy" alt="crystal"></div><h1 style="font-family:Gadugi;" class="game-title">Oracle of Seasons</h1></div></a>
-	<a class="game-link container games" href="/GB/GBC/OOA/OOA.html"><div class="game-tile"><span style="font-size:0px;position:fixed">idle clicker</span><div><img class="game-icon" src="/images/oracleofages.jpg" loading="lazy" alt="crystal"></div><h1 style="font-family:Gadugi;" class="game-title">Oracle of Ages</h1></div></a>
-	<a class="game-link container games" href="/DS/NDS/PLATINUM/PLATINUM.html"><div class="game-tile"><span style="font-size:0px;position:fixed">idle clicker</span><div><img class="game-icon" src="/images/platinum.png" loading="lazy" alt="crystal"></div><h1 style="font-family:Gadugi;" class="game-title">Pokemon Platinum</h1></div></a>
-	<a class="game-link container games" href="/DS/NDS/BLACK/BLACK.html"><div class="game-tile"><span style="font-size:0px;position:fixed">idle clicker</span><div><img class="game-icon" src="/images/black.jpg" loading="lazy" alt="crystal"></div><h1 style="font-family:Gadugi;" class="game-title">Pokemon Black</h1></div></a>
-	<a class="game-link container games" href="/DS/NDS/WHITE/WHITE.html"><div class="game-tile"><span style="font-size:0px;position:fixed">idle clicker</span><div><img class="game-icon" src="/images/white.png" loading="lazy" alt="crystal"></div><h1 style="font-family:Gadugi;" class="game-title">Pokemon White</h1></div></a>
-	<a class="game-link container games" href="/DS/NDS/CODMW/CODMW.html"><div class="game-tile"><span style="font-size:0px;position:fixed">idle clicker</span><div><img class="game-icon" src="/images/codmwds.jpg" loading="lazy" alt="codmw"></div><h1 style="font-family:Gadugi;" class="game-title">Call of Duty 4 MW</h1></div></a>
-	<!---<a class="game-link container games" href="/DS/NDS/CODMW4/CODMW4.html"><div class="game-tile"><span style="font-size:0px;position:fixed">idle clicker</span><div><img class="game-icon" src="/images/codmwds.jpg" loading="lazy" alt="codmw"></div><h1 style="font-family:Gadugi;" class="game-title">Call of Duty 4 MW</h1></div></a>-->
-	<a class="game-link container games" href="/PSX/CRASHBAND.html"><div class="game-tile"><span style="font-size:0px;position:fixed">idle clicker</span><div><img class="game-icon" src="/images/crashbandicoot.jpg" loading="lazy" alt="crash"></div><h1 style="font-family:Gadugi;" class="game-title">Crash Bandicoot</h1></div></a>
-	<a class="game-link container games" href="/SNES/SNES/SMW/SML.html"><div class="game-tile"><span style="font-size:0px;position:fixed">idle clicker</span><div><img class="game-icon" src="/images/smwsnes.jpg" loading="lazy" alt="mariosnes"></div><h1 style="font-family:Gadugi;" class="game-title">Super Mario World</h1></div></a>
-		<a class="game-link container games" href="/DOS/WIN31.html"><div class="game-tile"><span style="font-size:0px;position:fixed">idle clicker</span><div><img class="game-icon" src="/images/win31logo.png" loading="lazy" alt="win31"></div><h1 style="font-family:Gadugi;" class="game-title">Windows 3.1</h1></div></a>
-<a class="game-link container games" href="/DOS/CIVILIZATION.html"><div class="game-tile"><span style="font-size:0px;position:fixed">idle clicker</span><div><img class="game-icon" src="/images/Civilizationboxart.jpg" loading="lazy" alt="civ"></div><h1 style="font-family:Gadugi;" class="game-title">Civilization</h1></div></a>
-<a class="game-link container games" href="/FNAF/FNAF1/index.html"><div class="game-tile"><span style="font-size:0px;position:fixed">idle clicker</span><div><img class="game-icon" src="/images/fnaf.jpg" loading="lazy" alt="fnaf1"></div><h1 style="font-family:Gadugi;" class="game-title">FNAF</h1></div></a>
-		<a class="game-link container games" href="/FNAF/FNAF2/FNAF2.html"><div class="game-tile"><span style="font-size:0px;position:fixed">idle clicker</span><div><img class="game-icon" src="/images/fnaf2.jpg" loading="lazy" alt="fnaf2"></div><h1 style="font-family:Gadugi;" class="game-title">FNAF 2</h1></div></a>
-		<a class="game-link container games" href="/DOS/PRINCE.html"><div class="game-tile"><span style="font-size:0px;position:fixed">idle clicker</span><div><img class="game-icon" src="/images/Prince_of_Persia_1989_cover.jpg" loading="lazy" alt="prince"></div><h1 style="font-family:Gadugi;" class="game-title">Prince of Persia (1989)</h1></div></a>
-		<a class="game-link container games" href="https://webglmath.github.io/among-us/"><div class="game-tile"><span style="font-size:0px;position:fixed">idle clicker</span><div><img class="game-icon" src="/images/Hero.webp" loading="lazy" alt="TEMPORARY"></div><h1 style="font-family:Gadugi;" class="game-title">Among Us</h1></div></a>
-	<a class="game-link container games" href="/SNES/SNES/DKC/DKC.html"><div class="game-tile"><span style="font-size:0px;position:fixed">idle clicker</span><div><img class="game-icon" src="/images/dkc.jpeg" loading="lazy" alt="DonkeyKongCountry"></div><h1 style="font-family:Gadugi;" class="game-title">Donkey Kong Country</h1></div></a>
-		<a class="game-link container games" href="/SATURN/SATURN/MORTAL.html"><div class="game-tile"><span style="font-size:0px;position:fixed">idle clicker</span><div><img class="game-icon" src="/images/mortalkombat.jpeg" loading="lazy" alt="MortalKombat"></div><h1 style="font-family:Gadugi;" class="game-title">Mortal Kombat</h1></div></a>
-		<a class="game-link container games" href="/NES/NES/SUPERMARIO/SUPERMARIO.html"><div class="game-tile"><span style="font-size:0px;position:fixed">idle clicker</span><div><img class="game-icon" src="/images/Super_Mario_Bros._box.png" loading="lazy" alt="MarioBros"></div><h1 style="font-family:Gadugi;" class="game-title">Super Mario Bros</h1></div></a>
-		<a class="game-link container games" href="/SNES/SNES/DOOM/DOOM.html"><div class="game-tile"><span style="font-size:0px;position:fixed">idle clicker</span><div><img class="game-icon" src="/images/SNES_Doom_Box_Art.webp" loading="lazy" alt="Doom"></div><h1 style="font-family:Gadugi;" class="game-title">Doom</h1></div></a>
-		<a class="game-link container games" href="/N64Wasm/dist/"><div class="game-tile"><span style="font-size:0px;position:fixed">idle clicker</span><div><img class="game-icon" src="" loading="lazy" alt="Doom"></div><h1 style="font-family:Gadugi;" class="game-title">N64 Wasm - works on mobile</h1></div></a>
-		<a class="game-link container games" href="/videos/spongebob.html"><div class="game-tile"><span style="font-size:0px;position:fixed">idle clicker</span><div><img class="game-icon" src="" loading="lazy" alt="Spongebob"></div><h1 style="font-family:Gadugi;" class="game-title">Spongebob</h1></div></a>
-		<a class="game-link container games" href="/NES/NES/GALAGA/GALAGA.html"><div class="game-tile"><span style="font-size:0px;position:fixed">idle clicker</span><div><img class="game-icon" src="images/download (4).jpeg" loading="lazy" alt="Galaga"></div><h1 style="font-family:Gadugi;" class="game-title">Galaga</h1></div></a>
-		<a class="game-link container games" href="/NES/NES/ZELDA/ZELDA.html"><div class="game-tile"><span style="font-size:0px;position:fixed">idle clicker</span><div><img class="game-icon" src="images/download (5).jpeg" loading="lazy" alt="Zelda"></div><h1 style="font-family:Gadugi;" class="game-title">Zelda</h1></div></a>
-		<a class="game-link container games" href="/retrobowl.html"><div class="game-tile"><span style="font-size:0px;position:fixed">idle clicker</span><div><img class="game-icon" src="" loading="lazy" alt="Zelda"></div><h1 style="font-family:Gadugi;" class="game-title">RetroBowl</h1></div></a>
-		<p>&nbsp;</p>
-	</div>
-	</section>
-	<p style="color:white">Suggestions? Send them to <a href="mailto:choccymalkinquiries@gmail.com">choccymalkinquiries@gmail.com</a>!</p>
-		
-		<a href="indexlight.html" style="color:white" onclick="document.cookie = 'reader=1; SameSite=None; Secure';">Light Mode</a>
-		<p style="color:white;">250 commits!</p>
-	<script>
-function checkCookieHasASpecificValue() {
-  if (document.cookie.split(";").some((item) => item.includes("reader=1"))) {
-    window.location.replace(
-  "indexlight.html"
-);
-  }
-}
-  </script>
-	</body></html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="theme-color" content="#531516">
+  <!-- `user-scalable=no` prevents zooming on mobile devices after tapping twice -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Topper Robotics</title>
+  <link rel="apple-touch-icon" href="/logo.png">
+  <link rel="icon" href="/logo.png">
+  <link rel="manifest" href="./app.webmanifest">
+  <link rel="stylesheet" href="./index.css">
+      <script type="text/javascript" src= 
+        "https://code.jquery.com/jquery-1.7.1.min.js"> 
+    </script> 
+    <script type='text/javascript' src='https://knockoutjs.com/downloads/knockout-3.5.1.js'></script>
+</head>
+
+<body onload="do_ping()">
+<center><h1>Topper Robotics</h1></center>
+  <div class="flex spaced" id="menu-bar">
+    <button id="menu-toggle-btn"><i class="bars text-icon"></i>Menu</button>
+    <span id="crew-text"></span>
+  </div>
+  <div class="flex hide" id="menu">
+    <span class="group">Options</span>
+    <div class="flex spaced">
+      <div class="flex">Event Passcode
+        <input id="auth-passwd">
+      </div>
+      <div>Crew
+        <select id="crew-select">
+          <option class="red">Crew 1</option>
+          <option class="red">Crew 2</option>
+          <option class="red">Crew 3</option>
+          <option class="blue">Crew 4</option>
+          <option class="blue">Crew 5</option>
+          <option class="blue">Crew 6</option>
+        </select>
+      </div>
+      <div>Name
+        <input id="scout-name" placeholder="Your Team Leaders Name...">
+        </div>
+      <div>Template
+        <div class="flex">
+          <button id="template-copy-btn"><i class="copy text-icon"></i>Copy</button>
+          <button id="template-edit-btn"><i class="pen text-icon"></i>Edit</button>
+        </div>
+      </div>
+      <div>Surveys
+        <div class="flex">
+          <div>
+            <select id="download-type-sel">
+              <option>CSV</option>
+              <option>JSON</option>
+            </select>
+          </div>
+          <button id="surveys-download-btn"><i class="download text-icon"></i>Download</button>
+          <button id="surveys-erase-btn"><i class="eraser text-icon"></i>Erase</button>
+          <button id="onnoffline">Online/Offline</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="flex" id="main">
+    <div class="flex spaced" id="metrics-default">
+      <div>Team
+        <input id="metric-team" list="teams" autofocus maxlength="5">
+        <datalist id="teams-list"></datalist>
+      </div>
+      <div>
+        <button id="metric-absent"><i class="square-empty text-icon"></i>Absent</button>
+      </div>
+    </div>
+    <div class="flex spaced" id="metrics-custom"></div>
+    <span class="group">Survey</span>
+    <div class="flex spaced">
+      <button id="survey-save-btn"><i class="save text-icon"></i>Save</button>
+      <button id="survey-reset-btn"><i class="undo text-icon"></i>Reset</button>
+     <!--- <button onclick="document.getElementById('file-input').click();">Take Picture</button>
+      <input id="file-input" type="file" name="name" style="display: none;" />-->
+    </div>
+  </div>
+  <!-- `index.js` should always go last -->
+  <script src="./icon.js"></script>
+  <script src="./metric.js"></script>
+  <script src="./index.js"></script>
+  <script>window.onload = do_ping()</script>
+  <script>window.onmouseover = do_ping()</script>
+  <!---<script>
+  import {doTheThing} from './index.js';
+  let val = doTheThing();
+  window.onload = () =>  doTheThing();
+  </script>-->
+</body>
+
+</html>

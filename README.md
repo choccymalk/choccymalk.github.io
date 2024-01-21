@@ -1,2 +1,4 @@
-The consoles that are currently supported are Gameboy, Gameboy Color, Gameboy Advance, NES, SNES, DS, PlayStation 1, and N64.
-Minecraft is there, too.
+# VileScout
+
+Fork of Aidunlin's MeanScout, but for pit scouting instead of match scouting.  
+If you want to match scout, see https://github.com/Aidunlin/MeanScout :)  

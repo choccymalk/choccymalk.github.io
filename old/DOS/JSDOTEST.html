@@ -1,0 +1,125 @@
+<center>
+<!---https://js-dos.com/cdn/js-dos-api.js-->
+<script type='text/javascript' src='http://code.jquery.com/jquery-1.9.1.js'></script>
+<script type='text/javascript' src='https://js-dos.com/cdn/js-dos-api.js'></script>
+<style type='text/css'>
+body { background: #000; color: #ddd; }
+#dosbox { width: 640px; height: 400px; }
+.dosbox-container { width: 640px; height: 400px; }
+.dosbox-container > .dosbox-overlay { background-size: 640px 400px; }
+</style>
+<div id="dosbox" onclick="myFunction()"></div>
+<div><label for="exe"></label><input style="display:none;" type="text" id="exe" value="ACD.EXE"/></div>
+<div><label style="display:none;" for="zip"></label><input style="display:none;" value="https://dl.dropboxusercontent.com/s/1t8tbt3lw5zgom3/ARENA.zip" type="text" id="zip"/></div>
+<div><input type="button" id="start" value="Start" onclick="hide()"/></div>
+<div><button id="fullscreen" style="display: none;">Make fullscreen</button></div>
+<script type='text/javascript'>function myFunction() {
+  document.getElementById("dosbox").style.cursor = "none";
+}
+</script>
+<script>
+let exec = document.getElementById('exe').value;
+let ziparch = document.getElementById('zip').value;
+if(exec === '' || ziparch === ''){
+		alert("I have fucked shit up, please tell me. Err: 1");
+	}
+function hide(){
+	var x = document.getElementById("start");
+		if(x.style.display === "none"){
+				x.style.display = "block";
+			} else {
+				x.style.display = "none";
+			}
+	}
+	console.clear();
+var dosbox, exeName, zipUrl = '';
+document.getElementById('zip')
+	.addEventListener('drop', event => zipUrl = URL.createObjectURL(event.dataTransfer.files[0]));
+document.getElementById('start')
+	.addEventListener('click', event => {
+		exeName = "ACD.EXE";
+		zipUrl =  "https://dl.dropboxusercontent.com/s/1t8tbt3lw5zgom3/ARENA.zip";
+		if(exeName === '' || zipUrl === '') return alert('I have fucked shit up, please tell me. Err: 2');
+		dosbox = new Dosbox({
+			id: "dosbox",
+			onload: dosbox => dosbox.run(zipUrl, exeName),
+			onrun: (dosbox, app) => {
+				console.log("Starting: '" + app + "'");
+				let fullscreen = document.getElementById('fullscreen');
+				fullscreen.style.display = '';
+				fullscreen.addEventListener('click', event => dosbox.requestFullScreen());
+					dosbox.addEventListener("click", async () => {
+  await dosbox.requestPointerLock();
+});
+			}
+		});
+		dosbox.ui.overlay.hide();
+		dosbox.ui.showLoader();
+		dosbox.downloadScript();
+	});
+</script>
+<script type="text/javascript">
+// setup of the canvas
+
+window.addEventListener('load', eventWindowLoaded, false);
+var canvas = document.querySelector('canvas');
+var ctx = canvas.getContext('2d');
+
+function eventWindowLoaded() {  
+  canvasDraw();
+}
+
+var x = 50;
+var y = 50;
+
+function canvasDraw() { 
+  ctx.fillStyle = "black";
+  ctx.fillRect(0,0,canvas.clientWidth,canvas.clientHeight);
+  ctx.fillStyle = "#f00";  
+  ctx.beginPath();
+  ctx.arc(x,y,20,0,degToRad(360), true);
+  ctx.fill();
+}
+
+// pointer lock object forking for cross browser
+canvas.requestPointerLock = canvas.requestPointerLock || canvas.mozRequestPointerLock;
+document.exitPointerLock = document.exitPointerLock || document.mozExitPointerLock;
+
+canvas.onclick = function() {
+  canvas.requestPointerLock();
+}
+
+// pointer lock event listeners
+// Hook pointer lock state change events for different browsers
+document.addEventListener('pointerlockchange', lockChangeAlert, false);
+document.addEventListener('mozpointerlockchange', lockChangeAlert, false);
+
+function lockChangeAlert() {
+  if(document.pointerLockElement === canvas ||
+  document.mozPointerLockElement === canvas) {
+    console.log('The pointer lock status is now locked');
+    document.addEventListener("mousemove", canvasLoop, false);
+  } else {
+    console.log('The pointer lock status is now unlocked');  
+    document.removeEventListener("mousemove", canvasLoop, false);
+  }
+}
+
+
+function canvasLoop(e) {
+  var movementX = e.movementX || e.mozMovementX || 0;
+  var movementY = e.movementY || e.mozMovementY ||  0;
+  x += movementX;
+  y += movementY; 
+  canvasDraw();
+  console.log("X position: " + x + ', Y position: ' + y);
+}
+
+// helper function
+function degToRad(degrees) {
+  var result = Math.PI/180 * degrees;
+  return result;
+}
+</script>
+<!--- OREGON.EXE -->
+</center>

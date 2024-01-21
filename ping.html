@@ -1,0 +1,19 @@
+<head>
+    <script src="./ping.js"></script>
+    <script>
+    cannotContactServer = 0;
+    var do_ping = function() {
+        ping(/*document.getElementById('pingurl').value*/"http://10.0.0.3").then(function(delta) {
+            alert(delta);
+        }).catch(function(error) {
+            alert(String(error));
+            cannotContactServer = 1;
+            console.log(cannotContactServer);
+        });
+    };
+    </script>
+</head>
+<body>
+    <input id='pingurl' type='text' value='http://google.com'></input>
+    <button onclick='do_ping()'>Ping</button>
+</body>
