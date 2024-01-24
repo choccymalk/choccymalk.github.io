@@ -11,9 +11,9 @@
 /* `--theme-color` will change based on the selected location */
 :root {
   color-scheme: dark light;
-  --red: #531516;
-  --blue: #531516;
-  --purple: #531516;
+  --red: #b04941;
+  --blue: #b04941;
+  --purple: #b04941;
   --theme-color: var(--purple);
   --main-color: #fff;
   --fg-color: rgba(127, 127, 127, 0.2);

@@ -77,7 +77,9 @@ const infiniteRechargeSurvey = {
     { "name": "Average Note launch Distance (m)", "type": "float"},
     { "name": "Successfull grab rate (%)", "type": "float"},
     { "name": "Robot Weight (lbs)", "type": "float"},
-    { "name": "Max Climb Height", "type": "select", "values": ["High","Medium", "Low", "Non-scoring bot"] },
+    { "name": "Notes Scored in Amp", "type": "float"},
+    { "name": "Notes Scored in Speaker", "type": "float"},
+    { "name": "Max Climb Height", "type": "select", "values": ["High","Medium", "Low", "Did  Not Climb"] },
   ]
 };
 
@@ -89,15 +91,18 @@ const exampleTemplate = infiniteRechargeSurvey;
 console.log(onnoffline);
 
 function toggleInMatch(){
-  window.location.replace("index.html");
+  window.location.replace("prematch.html");
 } 
 
 function changeSaveState(){
   console.log("changed state");
   onnoffline = !onnoffline;
-  /*else{
-    onnoffline - 1;
-  }*/
+  if(onnoffline == 1){
+    surveysSave.innerHTML = "Online"
+  }
+  else{
+    surveysSave.innerHTML = "Offline"
+  }
   console.log(onnoffline);
   //return;
 }

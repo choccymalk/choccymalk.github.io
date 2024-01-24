@@ -110,9 +110,12 @@ function toggleInMatch(){
 function changeSaveState(){
   console.log("changed state");
   onnoffline = !onnoffline;
-  /*else{
-    onnoffline - 1;
-  }*/
+  if(onnoffline == 1){
+    surveysSave.innerHTML = "Online"
+  }
+  else{
+    surveysSave.innerHTML = "Offline"
+  }
   console.log(onnoffline);
   //return;
 }

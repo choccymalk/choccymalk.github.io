@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <meta name="theme-color" content="#531516">
+  <meta name="theme-color" content="#b04941">
   <!-- `user-scalable=no` prevents zooming on mobile devices after tapping twice -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -11,90 +11,41 @@
   <link rel="apple-touch-icon" href="/logo.png">
   <link rel="icon" href="/logo.png">
   <link rel="manifest" href="./app.webmanifest">
-  <link rel="stylesheet" href="./index.css">
+  <link rel="stylesheet" href="./index1.css">
       <script type="text/javascript" src= 
         "https://code.jquery.com/jquery-1.7.1.min.js"> 
     </script> 
     <script type='text/javascript' src='https://knockoutjs.com/downloads/knockout-3.5.1.js'></script>
 </head>
 
-<body onload="do_ping()">
-<center><h1>Topper Robotics</h1></center>
-  <div class="flex spaced" id="menu-bar">
-    <button id="menu-toggle-btn"><i class="bars text-icon"></i>Menu</button>
-    <span id="crew-text"></span>
-  </div>
-  <div class="flex hide" id="menu">
-    <span class="group">Options</span>
-    <div class="flex spaced">
-      <div class="flex">Event Passcode
-        <input id="auth-passwd">
-      </div>
-      <div>Crew
-        <select id="crew-select">
-          <option class="red">Crew 1</option>
-          <option class="red">Crew 2</option>
-          <option class="red">Crew 3</option>
-          <option class="blue">Crew 4</option>
-          <option class="blue">Crew 5</option>
-          <option class="blue">Crew 6</option>
-        </select>
-      </div>
-      <div>Name
-        <input id="scout-name" placeholder="Your Team Leaders Name...">
-        </div>
-      <div>Template
-        <div class="flex spaced">
-          <button id="template-copy-btn"><i class="copy text-icon"></i>Copy</button>
-          <button id="template-edit-btn"><i class="pen text-icon"></i>Edit</button>
-        </div>
-      </div>
-      <div>Surveys
-        <div class="flex spaced">
-          <div>
-            <select id="download-type-sel">
-              <option>CSV</option>
-              <option>JSON</option>
-            </select>
-          </div>
-          <button id="surveys-download-btn"><i class="download text-icon"></i>Download</button>
-          <button id="surveys-erase-btn"><i class="eraser text-icon"></i>Erase</button>
-          <button id="onnoffline">Online/Offline</button>
-        </div>
-      </div>
+<body>
+<center><h1>Topper Robotics</h1>
+    <div>
+    <button id="preMatch"><i class="bars text-icon"></i>Pre-Match</button>
+    <p>&nbsp;</p>
+    <button id="inMatch"><i class="bars text-icon"></i>In Match</button>
     </div>
-  </div>
-  <div class="flex" id="main">
-    <div class="flex spaced" id="metrics-default">
-      <div>Team
-        <input id="metric-team" list="teams" autofocus maxlength="5">
-        <datalist id="teams-list"></datalist>
-      </div>
-      <div>
-        <button id="metric-absent"><i class="square-empty text-icon"></i>Absent</button>
-      </div>
-    </div>
-    <div class="flex spaced" id="metrics-custom"></div>
-    <span class="group">Survey</span>
-    <div class="flex spaced">
-      <button id="survey-save-btn"><i class="save text-icon"></i>Save</button>
-      <button id="survey-reset-btn"><i class="undo text-icon"></i>Reset</button>
-      <button id="matchScoring">In Match</button>
-     <!--- <button onclick="document.getElementById('file-input').click();">Take Picture</button>
-      <input id="file-input" type="file" name="name" style="display: none;" />-->
-    </div>
-  </div>
   <!-- `index.js` should always go last -->
   <script src="./icon.js"></script>
   <script src="./metric.js"></script>
-  <script src="./index.js"></script>
-  <script>window.onload = do_ping()</script>
-  <script>window.onmouseover = do_ping()</script>
+  <script>
+    const preMatchButton = document.querySelector("#preMatch");
+    const inMatchButton = document.querySelector("#inMatch");
+    preMatchButton.onclick = () => preMatch();
+    inMatchButton.onclick = () => inMatch();
+    function preMatch(){
+        window.location.replace("prematch.html")
+    }
+    function inMatch(){
+        window.location.replace("match.html")
+    }
+  </script>
   <!---<script>
   import {doTheThing} from './index.js';
   let val = doTheThing();
   window.onload = () =>  doTheThing();
   </script>-->
+</center>
 </body>
 
 </html>
