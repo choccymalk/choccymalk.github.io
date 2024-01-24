@@ -291,7 +291,7 @@ function saveSurvey() {
       }
     }
 
-    if (/*authPasswd.value === 0 && */cannotContactServer == "1" && onnoffline == 1){
+    if (/*authPasswd.value === 0 && */cannotContactServer == "1" || onnoffline == 1){
       if (!confirm("Save match data OFFLINE?")) return;
       let surveys = JSON.parse(localStorage.surveys ?? "[]");
       surveys.push([
