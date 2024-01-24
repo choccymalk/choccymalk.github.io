@@ -79,7 +79,7 @@ const infiniteRechargeSurvey = {
     { "name": "Robot Weight (lbs)", "type": "float"},
     { "name": "Notes Scored in Amp", "type": "float"},
     { "name": "Notes Scored in Speaker", "type": "float"},
-    { "name": "Max Climb Height", "type": "select", "values": ["High","Medium", "Low", "Did  Not Climb"] },
+    { "name": "Max Climb Height", "type": "select", "values": ["Center","Right", "Left", "Did  Not Climb"] },
   ]
 };
 
