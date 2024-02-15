@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="theme-color" content="#b04941">
+  <!-- `user-scalable=no` prevents zooming on mobile devices after tapping twice -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Topper Robotics</title>
+  <link rel="apple-touch-icon" href="/logo.png">
+  <link rel="icon" href="/logo.png">
+  <link rel="manifest" href="./app.webmanifest">
+  <link rel="stylesheet" href="./index1.css">
+      <script type="text/javascript" src= 
+        "https://code.jquery.com/jquery-1.7.1.min.js"> 
+    </script> 
+    <script type='text/javascript' src='https://knockoutjs.com/downloads/knockout-3.5.1.js'></script>
+</head>
+
+<body>
+<center><h1>Topper Robotics</h1>
+    <div>
+    <button id="preMatch"><i class="bars text-icon"></i>Pre-Match</button>
+    <p>&nbsp;</p>
+    <button id="inMatch"><i class="bars text-icon"></i>In Match</button>
+    </div>
+  <!-- `index.js` should always go last -->
+  <script src="./icon.js"></script>
+  <script src="./metric.js"></script>
+  <script>
+    const preMatchButton = document.querySelector("#preMatch");
+    const inMatchButton = document.querySelector("#inMatch");
+    preMatchButton.onclick = () => preMatch();
+    inMatchButton.onclick = () => inMatch();
+    function preMatch(){
+        window.location.replace("prematch.html")
+    }
+    function inMatch(){
+        window.location.replace("match.html")
+    }
+  </script>
+  <!---<script>
+  import {doTheThing} from './index.js';
+  let val = doTheThing();
+  window.onload = () =>  doTheThing();
+  </script>-->
+</center>
+</body>
+
+</html>
