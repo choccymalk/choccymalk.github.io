@@ -16,9 +16,14 @@
         "https://code.jquery.com/jquery-1.7.1.min.js"> 
     </script> 
     <script type='text/javascript' src='https://knockoutjs.com/downloads/knockout-3.5.1.js'></script>
+  <script>
+    function set_name(){
+      
+    }
+  </script>
 </head>
 
-<body onload="do_ping();set_name">
+<body onload="do_ping();set_name();">
 <center><h1>Topper Robotics</h1></center>
   <div class="flex spaced" id="menu-bar">
     <button id="menu-toggle-btn"><i class="bars text-icon"></i>Menu</button>
@@ -41,7 +46,7 @@
         </select>
       </div>
       <div>Name
-        <input id="scout-name" placeholder="Your Team Leaders Name..."><button onclick="document.cookie=scout-name">Save</button>
+        <input id="scout-name" placeholder="Your Team Leaders Name..."><button onclick="document.cookie="name="scout-name">Save</button>
         </div>
       <div>Template
         <div class="flex spaced">
