@@ -77,10 +77,10 @@ const infiniteRechargeSurvey = {
     { "name": "Average Note launch Distance (m)", "type": "float"},
     { "name": "Successfull grab rate (%)", "type": "float"},
     //{ "name": "Robot Weight (lbs)", "type": "float"},
-    { "name": "Notes Scored in Amp (Autonomous)", "type": "float"},
-    { "name": "Notes Scored in Speaker (Autonomous)", "type": "float"},
-    { "name": "Notes Scored in Amp (Teleop)", "type": "float"},
-    { "name": "Notes Scored in Speaker (Teleop)", "type": "float"},
+    { "name": "Notes Scored in Amp (Autonomous)", "type": "number" },
+    { "name": "Notes Scored in Speaker (Autonomous)", "type": "number" },
+    { "name": "Notes Scored in Amp (Teleop)", "type": "number" },
+    { "name": "Notes Scored in Speaker (Teleop)", "type": "number" },
     { "name": "Max Climb Height", "type": "select", "values": ["Center","Right", "Left", "Did  Not Climb"] },
   ]
 };
