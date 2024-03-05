@@ -20,6 +20,46 @@
     function set_name(){
       
     }
+    function set_ScoutName_cookie (){
+      
+    } 
+    function setCookie(cname,cvalue,exdays) {
+  const d = new Date();
+  d.setTime(d.getTime() + (exdays*24*60*60*1000));
+  let expires = "expires=" + d.toUTCString();
+  document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+}
+
+function getCookie(cname) {
+  let name = cname + "=";
+  let decodedCookie = decodeURIComponent(document.cookie);
+  let ca = decodedCookie.split(';');
+  for(let i = 0; i < ca.length; i++) {
+    let c = ca[i];
+    while (c.charAt(0) == ' ') {
+      c = c.substring(1);
+    }
+    if (c.indexOf(name) == 0) {
+      return c.substring(name.length, c.length);
+    }
+  }
+  return "";
+}
+
+function checkCookie() {
+  let user = getCookie("username");
+  if (user != "") {
+    document.getElementById('scout_name').value = user;
+  } else {
+     //user = prompt("Please enter your name:","");
+    document.getElementById('scout_name_save_button').onclick = function() {
+   let username = document.getElementById('scout_name').value;
+}​;​
+     if (user != "" && user != null) {
+       setCookie("username", user, 30);
+     }
+  }
+}
   </script>
 </head>
 
@@ -46,7 +86,7 @@
         </select>
       </div>
       <div>Name
-        <input id="scout_name" placeholder="Your Team Leaders Name..."><button onclick="document.cookie="name="scout_name">Save</button>
+        <input id="scout_name" placeholder="Your Team Leaders Name..."><button id="scout_name_save_button" onclick="set_scoutName_cookie();">Save</button>
         </div>
       <div>Template
         <div class="flex spaced">
