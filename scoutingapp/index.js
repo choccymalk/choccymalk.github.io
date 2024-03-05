@@ -286,6 +286,7 @@ function saveSurvey() {
       if (scoutName.value == "") {
           alert("Invalid name value! Please enter your name where it goes.");
           teamMetric.focus();
+          //console.log(scoutName);
           return;
       }
       

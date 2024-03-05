@@ -17,10 +17,11 @@
     </script> 
     <script type='text/javascript' src='https://knockoutjs.com/downloads/knockout-3.5.1.js'></script>
   <script>
+    /*
     function set_name(){
       
     }
-    function set_ScoutName_cookie (){
+    function set_ScoutName_cookie(){
       
     } 
     function setCookie(cname,cvalue,exdays) {
@@ -54,12 +55,12 @@ function checkCookie() {
      //user = prompt("Please enter your name:","");
     document.getElementById('scout_name_save_button').onclick = function() {
    let user = document.getElementById('scout_name').value;
-}​
+    }
      if (user != "" && user != null) {
        setCookie("username", user, 30);
      }
   }
-}
+}*/
   </script>
 </head>
 
@@ -86,7 +87,7 @@ function checkCookie() {
         </select>
       </div>
       <div>Name
-        <input id="scout_name" placeholder="Your Team Leaders Name..."><button id="scout_name_save_button" onclick="set_scoutName_cookie();">Save</button>
+        <input id="scout_name" placeholder="Your Team Leaders Name..."><!--<button id="scout_name_save_button">Save</button>-->
         </div>
       <div>Template
         <div class="flex spaced">
