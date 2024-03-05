@@ -53,8 +53,8 @@ function checkCookie() {
   } else {
      //user = prompt("Please enter your name:","");
     document.getElementById('scout_name_save_button').onclick = function() {
-   let username = document.getElementById('scout_name').value;
-}​;​
+   let user = document.getElementById('scout_name').value;
+}​
      if (user != "" && user != null) {
        setCookie("username", user, 30);
      }
