@@ -18,7 +18,7 @@
     <script type='text/javascript' src='https://knockoutjs.com/downloads/knockout-3.5.1.js'></script>
 </head>
 
-<body onload="do_ping()">
+<body onload="do_ping();set_name">
 <center><h1>Topper Robotics</h1></center>
   <div class="flex spaced" id="menu-bar">
     <button id="menu-toggle-btn"><i class="bars text-icon"></i>Menu</button>
@@ -41,7 +41,7 @@
         </select>
       </div>
       <div>Name
-        <input id="scout-name" placeholder="Your Team Leaders Name...">
+        <input id="scout-name" placeholder="Your Team Leaders Name..."><button onclick="document.cookie=scout-name">Save</button>
         </div>
       <div>Template
         <div class="flex spaced">
