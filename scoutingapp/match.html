@@ -135,9 +135,50 @@ function checkCookie() {
       <button id="survey-save-btn"><i class="save text-icon"></i>Save</button>
       <button id="survey-reset-btn"><i class="undo text-icon"></i>Reset</button>
       <button id="matchScoring">Pre-Match</button>
-     <button onclick="document.getElementById('file-input').click();">Take Picture</button>
-      <input id="file-input" type="file" name="name" style="display: none;" />
+     <!--<button onclick="document.getElementById('file-input').click();">Take Picture</button>
+      <input id="file-input" type="file" name="name" style="display: none;" />-->
+      <form enctype="multipart/form-data">
+        <input id="upload" type="file" name="files" size=30>
+        </form>
+        
+        <image width="80" height="80" class="form-control" id="upload_file"></image>
+        
+        <script>
+        function handle_file_select( evt ) {
+            console.info ( "[Event] file chooser" );
+            let preview;
+            let fl_files = evt.target.files; // JS FileList object
+        
+            // use the 1st file from the list
+            let fl_file = fl_files[0];
+        
+            let reader = new FileReader(); // built in API
+        
+            let display_file = ( e ) => { // set the contents of the <textarea>
+                console.info( '. . got: ', e.target.result.length, e );
+                document.getElementById("upload_file").src= e.target.result;
+                //document.getElementById( 'upload_file' ).innerHTML = e.target.result;
+                };
+        
+            let on_reader_load = ( fl ) => {
+                console.info( '. file reader load', fl );
+                return display_file; // a function
+                };
+        
+            // Closure to capture the file information.
+            reader.onload = on_reader_load( fl_file );
+        
+            // Read the file as text.
+            //reader.readAsText( fl_file );
+            reader.readAsDataURL(fl_file)
+            }
+        
+        // add a function to call when the <input type=file> status changes, but don't "submit" the form
+        document.getElementById( 'upload' ).addEventListener( 'change', handle_file_select, false );
+        </script>
+        
     </div>
+    
   </div>
   <!-- `index.js` should always go last -->
   <script src="./icon.js"></script>
