@@ -84,7 +84,22 @@ const infiniteRechargeSurvey = {
     { "name": "Max Climb Height", "type": "select", "values": ["Center","Right", "Left", "Did  Not Climb"] },
   ]
 };
-
+function getCookie(cname) {
+  let name = cname + "=";
+  let decodedCookie = decodeURIComponent(document.cookie);
+  let ca = decodedCookie.split(';');
+  for(let i = 0; i <ca.length; i++) {
+    let c = ca[i];
+    while (c.charAt(0) == ' ') {
+      c = c.substring(1);
+    }
+    if (c.indexOf(name) == 0) {
+      return c.substring(name.length, c.length);
+    }
+  }
+  return "";
+}
+let ScoutingNameValue = getCookie("username");
 // const matchMetric = [];
 const matchListings = [];
 
@@ -123,7 +138,7 @@ if (localStorage.backup) {
     const backup = JSON.parse(localStorage.backup);
     authPasswd.value = backup.find(metric => metric.name == "Auth").value;
     // matchMetric.value = matchCount;
-    scoutName.value = backup.find(metric => metric.name == "tName").value;
+    scoutName.value = /*backup.find(metric => metric.name == "tName").value;*/ScoutingNameValue;
     isAbsent = backup.find(metric => metric.name == "Absent").value;
     if (isAbsent) {
       absentMetric.innerHTML = "<i class='square-checked text-icon'></i>Absent";
@@ -144,7 +159,7 @@ function backupSurvey() {
     { name: "Team", value: teamMetric.value },
     { name: "Absent", value: isAbsent },
     { name: "Auth", value: authPasswd.value },
-    { name: "Name", value: scoutName.value},
+    { name: "Name", value: /*scoutName.value*/ScoutingNameValue},
     ...gameMetrics.map(metric => { return { name: metric.name, value: metric.value } })
   ]);
 }
@@ -272,7 +287,7 @@ function saveSurvey() {
         }
       }
   
-      if (scoutName.value == "") {
+      if (/*scoutName.value*/ScoutingNameValue == "") {
           alert("Invalid name value! Please enter your name where it goes.");
           teamMetric.focus();
           return;
@@ -300,7 +315,7 @@ function saveSurvey() {
         { name: "Team", value: teamMetric.value },
         { name: "Absent", value: isAbsent },
         { name: "Location", value: locationSelect.value },
-        { name: "Name", value: scoutName.value},
+        { name: "Name", value: /*scoutName.value*/ScoutingNameValue},
         ...gameMetrics.map(metric => { return { name: metric.name, value: metric.value } })
       ]);
       localStorage.surveys = JSON.stringify(surveys);
@@ -314,14 +329,14 @@ function saveSurvey() {
         { name: "Team", value: teamMetric.value },
         { name: "Absent", value: isAbsent },
         { name: "Location", value: locationSelect.value },
-        { name: "Name", value: scoutName.value},
+        { name: "Name", value: /*scoutName.value*/ScoutingNameValue},
         ...gameMetrics.map(metric => { return { name: metric.name, value: metric.value } })
       ]);
       postSurvey([
         { name: "Team", value: teamMetric.value },
         { name: "Absent", value: isAbsent },
         { name: "Location", value: locationSelect.value },
-        { name: "Name", value: scoutName.value},
+        { name: "Name", value: /*scoutName.value*/ScoutingNameValue},
         ...gameMetrics.map(metric => { return { name: metric.name, value: metric.value } })
       ]);
     }

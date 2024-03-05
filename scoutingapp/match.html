@@ -17,9 +17,15 @@
     </script> 
     <script type='text/javascript' src='https://knockoutjs.com/downloads/knockout-3.5.1.js'></script>
   <script>
-    /*
+    
     function set_name(){
-      
+      let user = getCookie("username");
+      if(user==""||user==null){
+        alert("set your name");
+      }
+      else{
+        document.getElementById('scout_name').value = user;
+      }
     }
     function set_ScoutName_cookie(){
       
@@ -48,23 +54,26 @@ function getCookie(cname) {
 }
 
 function checkCookie() {
+  document.getElementById('scout_name_save_button').onclick = function() {
+   let user = document.getElementById('scout_name').value;
+    }
   let user = getCookie("username");
   if (user != "") {
     document.getElementById('scout_name').value = user;
   } else {
      //user = prompt("Please enter your name:","");
-    document.getElementById('scout_name_save_button').onclick = function() {
-   let user = document.getElementById('scout_name').value;
-    }
-     if (user != "" && user != null) {
+     if (user != "") {
        setCookie("username", user, 30);
      }
+     else{
+      console.log(user)
+     }
   }
-}*/
+}
   </script>
 </head>
 
-<body onload="do_ping();set_name();">
+<body onload="do_ping();set_name();checkCookie();">
 <center><h1>Topper Robotics</h1></center>
   <div class="flex spaced" id="menu-bar">
     <button id="menu-toggle-btn"><i class="bars text-icon"></i>Menu</button>
@@ -87,7 +96,7 @@ function checkCookie() {
         </select>
       </div>
       <div>Name
-        <input id="scout_name" placeholder="Your Team Leaders Name..."><!--<button id="scout_name_save_button">Save</button>-->
+        <input id="scout_name" placeholder="Your Team Leaders Name..."><button id="scout_name_save_button" onclick="setCookie('username', document.getElementById('scout_name').value, 30)">Save</button>
         </div>
       <div>Template
         <div class="flex spaced">
