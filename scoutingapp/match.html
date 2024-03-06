@@ -141,7 +141,7 @@ function checkCookie() {
         <input id="upload" type="file" name="files" size=30>
         </form>
         
-        <image width="80" height="80" class="form-control" id="upload_file"></image>
+        <a target="_blank" id="image_link" href=""><image width="80" height="80" class="form-control" id="upload_file"></image></a>
         
         <script>
         function handle_file_select( evt ) {
@@ -157,6 +157,7 @@ function checkCookie() {
             let display_file = ( e ) => { // set the contents of the <textarea>
                 console.info( '. . got: ', e.target.result.length, e );
                 document.getElementById("upload_file").src= e.target.result;
+                document.getElementById("image_link").href= e.target.result;
                 //document.getElementById( 'upload_file' ).innerHTML = e.target.result;
                 };
         
