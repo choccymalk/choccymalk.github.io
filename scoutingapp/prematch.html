@@ -82,6 +82,35 @@
       <button id="matchScoring">In Match</button>
      <!--- <button onclick="document.getElementById('file-input').click();">Take Picture</button>
       <input id="file-input" type="file" name="name" style="display: none;" />-->
+        <input type="file" id="fileInput" />
+
+<button onclick="uploadFile()">Upload File</button>
+
+<script>
+    function uploadFile() {
+        const fileInput = document.getElementById('fileInput');
+        const serverURL = './server-script.php';
+
+        const formData = new FormData();
+        formData.append('uploadedFile', fileInput.files[0]);
+
+        fetch(serverURL, {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+            // Handle the response from the server
+            console.log(data);
+            // You can perform further actions based on the server response
+        })
+        .catch(error => {
+            // Handle errors
+            console.error('Error:', error);
+        });
+    }
+</script>
+      <a href="3984scoutingapp.000webhostapp.com/display-files.php"><button>View Images</button></a>
     </div>
   </div>
   <!-- `index.js` should always go last -->
