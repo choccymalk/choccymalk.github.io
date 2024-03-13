@@ -2,7 +2,7 @@ if ("serviceWorker" in navigator) {
   window.onload = () => navigator.serviceWorker.register("./sw.js");
 }
 
-onnoffline = 1;
+onnoffline = 0;
 cannotContactServer = 0;
 
 const menuToggleButton = document.querySelector("#menu-toggle-btn");

@@ -16,9 +16,64 @@
         "https://code.jquery.com/jquery-1.7.1.min.js"> 
     </script> 
     <script type='text/javascript' src='https://knockoutjs.com/downloads/knockout-3.5.1.js'></script>
+  <script>
+    
+    function set_name(){
+      let user = getCookie("username");
+      if(user==""||user==null){
+        alert("set your name");
+      }
+      else{
+        document.getElementById('scout_name').value = user;
+      }
+    }
+    function set_ScoutName_cookie(){
+      
+    } 
+    function setCookie(cname,cvalue,exdays) {
+  const d = new Date();
+  d.setTime(d.getTime() + (exdays*24*60*60*1000));
+  let expires = "expires=" + d.toUTCString();
+  document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+}
+
+function getCookie(cname) {
+  let name = cname + "=";
+  let decodedCookie = decodeURIComponent(document.cookie);
+  let ca = decodedCookie.split(';');
+  for(let i = 0; i < ca.length; i++) {
+    let c = ca[i];
+    while (c.charAt(0) == ' ') {
+      c = c.substring(1);
+    }
+    if (c.indexOf(name) == 0) {
+      return c.substring(name.length, c.length);
+    }
+  }
+  return "";
+}
+
+function checkCookie() {
+  document.getElementById('scout_name_save_button').onclick = function() {
+   let user = document.getElementById('scout_name').value;
+    }
+  let user = getCookie("username");
+  if (user != "") {
+    document.getElementById('scout_name').value = user;
+  } else {
+     //user = prompt("Please enter your name:","");
+     if (user != "") {
+       setCookie("username", user, 30);
+     }
+     else{
+      console.log(user)
+     }
+  }
+}
+  </script>
 </head>
 
-<body onload="do_ping()">
+<body onload="do_ping();set_name();checkCookie();">
 <center><h1>Topper Robotics</h1></center>
   <div class="flex spaced" id="menu-bar">
     <button id="menu-toggle-btn"><i class="bars text-icon"></i>Menu</button>
@@ -41,7 +96,7 @@
         </select>
       </div>
       <div>Name
-        <input id="scout-name" placeholder="Your Team Leaders Name...">
+        <input id="scout_name" placeholder="Your Team Leaders Name..."><button id="scout_name_save_button" onclick="setCookie('username', document.getElementById('scout_name').value, 30)">Save</button>
         </div>
       <div>Template
         <div class="flex spaced">
@@ -79,10 +134,50 @@
     <div class="flex spaced">
       <button id="survey-save-btn"><i class="save text-icon"></i>Save</button>
       <button id="survey-reset-btn"><i class="undo text-icon"></i>Reset</button>
-      <button id="matchScoring">In Match</button>
-     <!--- <button onclick="document.getElementById('file-input').click();">Take Picture</button>
+      <button id="matchScoring">Pre-Match</button>
+     <!--<button onclick="document.getElementById('file-input').click();">Take Picture</button>
       <input id="file-input" type="file" name="name" style="display: none;" />-->
-        <input type="file" id="fileInput" />
+     <!-- <form enctype="multipart/form-data">
+        <input id="upload" type="file" name="files" size=30>
+        </form>
+        
+        <a target="_blank" id="image_link" href=""><image width="80" height="80" class="form-control" id="upload_file"></image></a>
+        
+        <script>
+        function handle_file_select( evt ) {
+            console.info ( "[Event] file chooser" );
+            let preview;
+            let fl_files = evt.target.files; // JS FileList object
+        
+            // use the 1st file from the list
+            let fl_file = fl_files[0];
+        
+            let reader = new FileReader(); // built in API
+        
+            let display_file = ( e ) => { // set the contents of the <textarea>
+                console.info( '. . got: ', e.target.result.length, e );
+                document.getElementById("upload_file").src= e.target.result;
+                document.getElementById("image_link").href= e.target.result;
+                //document.getElementById( 'upload_file' ).innerHTML = e.target.result;
+                };
+        
+            let on_reader_load = ( fl ) => {
+                console.info( '. file reader load', fl );
+                return display_file; // a function
+                };
+        
+            // Closure to capture the file information.
+            reader.onload = on_reader_load( fl_file );
+        
+            // Read the file as text.
+            //reader.readAsText( fl_file );
+            reader.readAsDataURL(fl_file)
+            }
+        
+        // add a function to call when the <input type=file> status changes, but don't "submit" the form
+        document.getElementById( 'upload' ).addEventListener( 'change', handle_file_select, false );
+        </script>-->
+      <input type="file" id="fileInput" />
 
 <button onclick="uploadFile()">Upload File</button>
 
@@ -111,12 +206,14 @@
     }
 </script>
       <a href="https://3984scoutingapp.000webhostapp.com/display-files.php"><button>View Images</button></a>
+        
     </div>
+    
   </div>
   <!-- `index.js` should always go last -->
   <script src="./icon.js"></script>
   <script src="./metric.js"></script>
-  <script src="./index.js"></script>
+  <script src="./index1.js"></script>
   <script>window.onload = do_ping()</script>
   <script>window.onmouseover = do_ping()</script>
   <!---<script>

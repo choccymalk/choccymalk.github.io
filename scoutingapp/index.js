@@ -2,7 +2,7 @@ if ("serviceWorker" in navigator) {
   window.onload = () => navigator.serviceWorker.register("./sw.js");
 }
 
-onnoffline = 1;
+onnoffline = 0;
 cannotContactServer = 0;
 
 const menuToggleButton = document.querySelector("#menu-toggle-btn");
@@ -338,7 +338,7 @@ function saveSurvey() {
       ]);
     }
   }
-
+/*
 function postSurvey(surveyJson){
     newJson = "{\n";
     surveyJson.forEach(metric => {
@@ -385,7 +385,42 @@ function postSurvey(surveyJson){
     xhr.send(newJson);
 
   }
+*/
+function postSurvey(surveyJson) {
+  // Create a JSON file
+  const jsonData = JSON.stringify(surveyJson, null, 2);
+  const blob = new Blob([jsonData], { type: 'application/json' });
 
+  // Create FormData object and append the JSON file
+  const formData = new FormData();
+  formData.append('uploadedFile', blob, 'survey.json');
+  formData.append('password', authPasswd.value);
+
+  const serverURL = 'https://3984scoutingapp.000webhostapp.com/server-script.php';
+  const xhr = new XMLHttpRequest();
+
+  // Upload completed event
+  xhr.addEventListener('load', function (event) {
+      if (xhr.status === 200) {
+          // Handle the response from the server
+          const data = JSON.parse(xhr.responseText);
+          console.log(data);
+          // You can perform further actions based on the server response
+      } else {
+          // Handle the error
+          console.error('Error:', xhr.statusText);
+      }
+  });
+
+  // Handle errors
+  xhr.addEventListener('error', function (event) {
+      console.error('Error:', xhr.statusText);
+  });
+
+  // Open and send the request with FormData
+  xhr.open('POST', serverURL, true);
+  xhr.send(formData);
+}
 /**
  * Resets the current survey
  * @param {boolean} askUser A boolean that represents whether to prompt the user
