@@ -42,7 +42,7 @@ let scoutLocation = "Crew 1";
 let isAbsent = false;
 let gameMetrics = [];
 
-let serverURL = "http://10.0.0.3";
+let serverURL = "https://3984scoutingapp.000webhostapp.com/server-script.php";
 
 // If you make a new type, be sure to add it here
 const metricTypes = {
