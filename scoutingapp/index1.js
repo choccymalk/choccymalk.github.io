@@ -396,7 +396,7 @@ function postSurvey(surveyJson) {
 
   // Create FormData object and append the JSON file
   const formData = new FormData();
-  formData.append('surveyFile', blob, 'survey.json');
+  formData.append('uploadedFile', blob, 'survey.json');
   formData.append('password', authPasswd.value);
 
   const serverURL = 'https://3984scoutingapp.000webhostapp.com/server-script.php';
