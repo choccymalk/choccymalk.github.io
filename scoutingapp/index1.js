@@ -400,7 +400,7 @@ function postSurvey(surveyJson) {
   formData.append('uploadedFile', blob, 'survey.json');
   formData.append('password', authPasswd.value);
 
-  const serverURL = 'https://3984scoutingapp.000webhostapp.com/server-script.php';
+  const serverURL = 'https://3984scoutingapp.000webhostapp.com/upload-match.php';
   const xhr = new XMLHttpRequest();
 
   // Upload completed event

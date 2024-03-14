@@ -11,46 +11,39 @@
   <link rel="apple-touch-icon" href="/logo.png">
   <link rel="icon" href="/logo.png">
   <link rel="manifest" href="./app.webmanifest">
-  <link rel="stylesheet" href="./index1.css">
+  <link rel="stylesheet" href="./index2.css">
       <script type="text/javascript" src= 
         "https://code.jquery.com/jquery-1.7.1.min.js"> 
     </script> 
     <script type='text/javascript' src='https://knockoutjs.com/downloads/knockout-3.5.1.js'></script>
     <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <style>
+        #main {
+            display: inline-flex;
+  flex-wrap: wrap;
+  margin: 20px;
+  gap: 12px;
+}
+    </style>
 </head>
 
 <body>
 <center><h1>Topper Robotics</h1>
-    <div>
-    <button id="preMatch"><i class="bars text-icon"></i>Pre-Match</button>
-    <p>&nbsp;</p>
-    <button id="inMatch"><i class="bars text-icon"></i>In Match</button>
-    <p>&nbsp;</p>
-    <a href="https://3984scoutingapp.000webhostapp.com/export-data.php"><button>Export Match Data</button></a>
-    <p>&nbsp;</p>
-    <a href="https://3984scoutingapp.000webhostapp.com/export-data-pit.php"><button>Export Pit Data</button></a>
-    <p>&nbsp;</p>
-    <button id="qrCodes">QR Codes</button>
-    </div>
+    <div id="main">
+    <button id="home">Home</button>
+    <button onclick="generateMatchQRCode()">Match QR Code</button>
+    <button onclick="generatePitQRCode()">Pit QR Code</button>
+</div>
+    <div id="qrCode"></div>
   <!-- `index.js` should always go last -->
   <script src="./icon.js"></script>
   <script src="./metric.js"></script>
   <script>
-    const moveToQRCodePage = document.querySelector("#qrCodes");
-    const preMatchButton = document.querySelector("#preMatch");
-    const inMatchButton = document.querySelector("#inMatch");
+    const moveToQRCodePage = document.querySelector("#home");
     moveToQRCodePage.onclick = () => moveToQRCodes();
-    preMatchButton.onclick = () => preMatch();
-    inMatchButton.onclick = () => inMatch();
     function moveToQRCodes(){
-      window.location.replace("qrcode.html")
-    }
-    function preMatch(){
-      window.location.replace("prematch.html")
-    }
-    function inMatch(){
-      window.location.replace("match.html")
+      window.location.replace("index.html")
     }
   </script>
       <script>
