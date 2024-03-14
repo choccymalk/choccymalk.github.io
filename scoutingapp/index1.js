@@ -82,6 +82,7 @@ const infiniteRechargeSurvey = {
     { "name": "Notes Scored in Amp (Teleop)", "type": "number" },
     { "name": "Notes Scored in Speaker (Teleop)", "type": "number" },
     { "name": "Max Climb Height", "type": "select", "values": ["Center","Right", "Left", "Did  Not Climb"] },
+    { "name": "Notes", "type": "text", "tip": "Type here..." },
   ]
 };
 function getCookie(cname) {
