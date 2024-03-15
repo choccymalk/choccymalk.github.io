@@ -1,7 +1,7 @@
 {
   "name": "big bomb",
-  "short_name": "big bomb - Pit Scouting",
-  "description": "Pit Scouting form for 3984 based on MeanScout by Aidunlin.",
+  "short_name": "big bomb - Scouting",
+  "description": "Pit and Match Scouting form for 3984 based on VileScout.",
   "start_url": "./index.html",
   "display": "standalone",
   "theme_color": "#6e04aa",
