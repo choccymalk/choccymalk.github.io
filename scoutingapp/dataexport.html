@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="theme-color" content="#b04941">
+  <!-- `user-scalable=no` prevents zooming on mobile devices after tapping twice -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>big bomb</title>
+  <link rel="apple-touch-icon" href="/logo.png">
+  <link rel="icon" href="/logo.png">
+  <link rel="manifest" href="./app.webmanifest">
+  <link rel="stylesheet" href="./index1.css">
+      <script type="text/javascript" src= 
+        "https://code.jquery.com/jquery-1.7.1.min.js"> 
+    </script> 
+    <script type='text/javascript' src='https://knockoutjs.com/downloads/knockout-3.5.1.js'></script>
+    <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+</head>
+
+<body>
+<center><h1>big bomb</h1>
+    <div>
+    <button id="home">Home</button>
+    <a href="https://3984scoutingapp.000webhostapp.com/export-data.php"><button>Export Match Data</button></a>
+    <a href="https://3984scoutingapp.000webhostapp.com/export-data-pit.php"><button>Export Pit Data</button></a>
+    </div>
+    <script>
+        const moveToQRCodePage = document.querySelector("#home");
+        moveToQRCodePage.onclick = () => moveToQRCodes();
+        function moveToQRCodes(){
+          window.location.replace("index.html")
+        }
+      </script>
+  <!-- `index.js` should always go last -->
+  <script src="./icon.js"></script>
+  <script src="./metric.js"></script>
+</center>
+</body>
+
+</html>

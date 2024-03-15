@@ -24,25 +24,25 @@
 <center><h1>big bomb</h1>
     <div>
     <button id="preMatch"><i class="bars text-icon"></i>Pre-Match</button>
-    <p>&nbsp;</p>
+    <!--<p>&nbsp;</p>-->
     <button id="inMatch"><i class="bars text-icon"></i>In Match</button>
-    <p>&nbsp;</p>
-    <a href="https://3984scoutingapp.000webhostapp.com/export-data.php"><button>Export Match Data</button></a>
-    <p>&nbsp;</p>
-    <a href="https://3984scoutingapp.000webhostapp.com/export-data-pit.php"><button>Export Pit Data</button></a>
-    <p>&nbsp;</p>
-    <button id="qrCodes">QR Codes</button>
+    <!--<p>&nbsp;</p>-->
+    <button id="exportData"><i class="bars text-icon"></i>Export Data</button>
+    <!--<p>&nbsp;</p>-->
+    <button id="qrCodes"><i class="bars text-icon"></i>QR Codes</button>
     </div>
   <!-- `index.js` should always go last -->
   <script src="./icon.js"></script>
   <script src="./metric.js"></script>
   <script>
+    const moveToDataExport = document.getElementById("exportData");
     const moveToQRCodePage = document.querySelector("#qrCodes");
     const preMatchButton = document.querySelector("#preMatch");
     const inMatchButton = document.querySelector("#inMatch");
     moveToQRCodePage.onclick = () => moveToQRCodes();
     preMatchButton.onclick = () => preMatch();
     inMatchButton.onclick = () => inMatch();
+    moveToDataExport.onclick = () => dataExport();
     function moveToQRCodes(){
       window.location.replace("qrcode.html")
     }
@@ -52,86 +52,10 @@
     function inMatch(){
       window.location.replace("match.html")
     }
+    function dataExport(){
+        window.location.replace("dataexport.html")
+    }
   </script>
-      <script>
-        function generatePitQRCode() {
-            const csvURL = "https://3984scoutingapp.000webhostapp.com/export-data-pit.php";
-
-            fetch(csvURL, { mode: 'no-cors' })
-        .then(response => {
-            return response.text();
-        })
-        .then(csvData => {
-            // Check if the response body contains "No JSON files found in the directory."
-            if (csvData.includes("No JSON files found in the directory.")) {
-                throw new Error('No JSON files found in the directory.');
-            }
-
-            // Get the div container for the QR code
-            const qrContainer = document.getElementById('qrCode');
-
-            // Clear previous QR code
-            qrContainer.innerHTML = '';
-
-            // Generate QR Code
-            const qr = new QRCode(qrContainer, {
-                text: csvURL, // Use CSV URL as text for the QR code
-                width: 256,
-                height: 256,
-                colorDark: "#000000",
-                colorLight: "#ffffff",
-                correctLevel: QRCode.CorrectLevel.H
-            });
-        })
-        .catch(error => {
-            console.error('Error fetching CSV:', error.message);
-            if (error.message !== 'No JSON files found in the directory.') {
-                alert('Error fetching CSV. Please try again later.');
-            }
-        });
-        }
-        function generateMatchQRCode() {
-    const csvURL = "https://3984scoutingapp.000webhostapp.com/export-data.php";
-
-    fetch(csvURL, { mode: 'no-cors' })
-        .then(response => {
-            return response.text();
-        })
-        .then(csvData => {
-            // Check if the response body contains "No JSON files found in the directory."
-            if (csvData.includes("No JSON files found in the directory.")) {
-                throw new Error('No JSON files found in the directory.');
-            }
-
-            // Get the div container for the QR code
-            const qrContainer = document.getElementById('qrCode');
-
-            // Clear previous QR code
-            qrContainer.innerHTML = '';
-
-            // Generate QR Code
-            const qr = new QRCode(qrContainer, {
-                text: csvURL, // Use CSV URL as text for the QR code
-                width: 256,
-                height: 256,
-                colorDark: "#000000",
-                colorLight: "#ffffff",
-                correctLevel: QRCode.CorrectLevel.H
-            });
-        })
-        .catch(error => {
-            console.error('Error fetching CSV:', error.message);
-            if (error.message !== 'No JSON files found in the directory.') {
-                alert('Error fetching CSV. Please try again later.');
-            }
-        });
-}
-    </script>
-  <!---<script>
-  import {doTheThing} from './index.js';
-  let val = doTheThing();
-  window.onload = () =>  doTheThing();
-  </script>-->
 </center>
 </body>
 
