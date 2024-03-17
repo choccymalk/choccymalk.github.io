@@ -30,19 +30,25 @@
     <button id="exportData"><i class="bars text-icon"></i>Export Data</button>
     <!--<p>&nbsp;</p>-->
     <button id="qrCodes"><i class="bars text-icon"></i>QR Codes</button>
+    <button id="qrCodeScannerButton"><i class="bars text-icon"></i>QR Scanner</button>
     </div>
   <!-- `index.js` should always go last -->
   <script src="./icon.js"></script>
   <script src="./metric.js"></script>
   <script>
+    const qrCodeScanner = document.getElementById("qrCodeScannerButton");
     const moveToDataExport = document.getElementById("exportData");
     const moveToQRCodePage = document.querySelector("#qrCodes");
     const preMatchButton = document.querySelector("#preMatch");
     const inMatchButton = document.querySelector("#inMatch");
+    qrCodeScanner.onclick = () => moveToQRScanner();
     moveToQRCodePage.onclick = () => moveToQRCodes();
     preMatchButton.onclick = () => preMatch();
     inMatchButton.onclick = () => inMatch();
     moveToDataExport.onclick = () => dataExport();
+    function moveToQRScanner(){
+      window.location.replace("readqrcode.html");
+    }
     function moveToQRCodes(){
       window.location.replace("qrcode.html")
     }
