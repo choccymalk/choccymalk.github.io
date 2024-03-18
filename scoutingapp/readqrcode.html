@@ -109,10 +109,11 @@
           outputData.parentElement.hidden = false;
           outputData.innerText = code.data;
           var qrCodeData = code.data;
-          if (qrCodeData.startsWith("https://")) {
+          if (qrCodeData.startsWith("https://") || qrCodeData.startsWith("http://")) {
             document.getElementById("outputData").href = code.data;
           } else {
             console.log("nuh uh");
+            document.getElementById("outputData").innerText = "Search for"+"'"+qrCodeData+"'";
             document.getElementById("outputData").href = "https://google.com/search?q="+qrCodeData;
           }
         } else {
